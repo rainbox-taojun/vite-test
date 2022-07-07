@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { useUserStore } from '@/store/user'
-import { getToken } from '@/utils/auth'
+// import { useUserStore } from '@/store/user'
+// import { getToken } from '@/utils/auth'
 
 // create an axios instance
 const service = axios.create({
@@ -11,24 +11,24 @@ const service = axios.create({
 })
 
 // request interceptor
-service.interceptors.request.use(
-  config => {
-    // do something before request is sent
-    const userStore = useUserStore()
-    if (userStore.token) {
-      // let each request carry token
-      // ['X-Token'] is a custom headers key
-      // please modify it according to the actual situation
-      config.headers['X-Token'] = getToken()
-    }
-    return config
-  },
-  error => {
-    // do something with request error
-    console.log(error) // for debug
-    return Promise.reject(error)
-  }
-)
+// service.interceptors.request.use(
+//   config => {
+//     // do something before request is sent
+//     const userStore = useUserStore()
+//     if (userStore.token) {
+//       // let each request carry token
+//       // ['X-Token'] is a custom headers key
+//       // please modify it according to the actual situation
+//       config.headers['X-Token'] = getToken()
+//     }
+//     return config
+//   },
+//   error => {
+//     // do something with request error
+//     console.log(error) // for debug
+//     return Promise.reject(error)
+//   }
+// )
 
 // response interceptor
 service.interceptors.response.use(
@@ -48,7 +48,7 @@ service.interceptors.response.use(
     // if the custom code is not 200, it is judged as an error.
     if (res.code !== 200) {
       ElMessage({
-        message: res.message || 'Error',
+        message: res.msg || 'Error',
         type: 'error',
         duration: 5 * 1000
       })

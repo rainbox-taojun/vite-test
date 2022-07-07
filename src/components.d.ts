@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AreaSelect: typeof import('./components/AreaSelect.vue')['default']
+    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     PanelV1: typeof import('./components/PanelV1.vue')['default']
     PanelV2: typeof import('./components/PanelV2.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

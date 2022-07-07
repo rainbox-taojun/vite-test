@@ -44,21 +44,25 @@ import MapView from './components/MapView/index.vue'
   height: 100%;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   background-color: rgba(0, 7, 46, 1);
 
   &>.left,
   &>.right {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, calc(33.3% - 40px / 3));
     grid-gap: 20px;
+    height: 100%;
   }
 
   &>.center {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 3fr 3fr 4fr;
+    grid-template-rows: calc(30% - 40px / 3) calc(30% - 40px / 3) calc(40% - 40px / 3);
     grid-gap: 20px;
+    height: 100%;
+    overflow: hidden;
 
     .map {
       grid-column-start: 1;

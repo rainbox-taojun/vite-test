@@ -64,5 +64,11 @@ const { title } = defineProps({
       border-image: linear-gradient(270deg, rgba(0, 63, 255, 0), rgba(147, 255, 253, 1), rgba(0, 63, 255, 0)) 2 2;
     }
   }
+
+  &>main {
+    height: calc(100% - 38px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
 </style>

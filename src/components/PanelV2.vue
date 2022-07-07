@@ -10,7 +10,6 @@
 
     <main>
       <slot />
-
     </main>
   </div>
 </template>
@@ -28,6 +27,12 @@
     justify-content: center;
     width: 100%;
     height: 43px;
+  }
+
+  &>main {
+    height: calc(100% - 43px);
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 </style>
