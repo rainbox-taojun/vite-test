@@ -8,11 +8,13 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Icons from 'unplugin-icons/vite' // icon
 import IconsResolver from 'unplugin-icons/resolver' // icon自动导入
 import { viteMockServe } from 'vite-plugin-mock'
+import { svgBuilder } from './build/svg/svgBuilder.ts'
 
 const pathSrc = path.resolve(__dirname, 'src')
 
 // https://vitejs.dev/config/
 export default ({ command }) => {
+  let prodMock = false
   return {
     resolve: {
       alias: {
@@ -78,6 +80,7 @@ export default ({ command }) => {
           setupProdMockServer();
         `,
       }),
+      svgBuilder('./src/icons/svg/')
     ]
   }
 }

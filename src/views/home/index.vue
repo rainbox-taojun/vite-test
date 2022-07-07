@@ -50,7 +50,7 @@ import MapView from './components/MapView/index.vue'
   &>.left,
   &>.right {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 100%;
     grid-template-rows: repeat(3, calc(33.3% - 40px / 3));
     grid-gap: 20px;
     height: 100%;
