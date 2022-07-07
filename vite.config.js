@@ -28,6 +28,13 @@ export default ({ command }) => {
         }
       }
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use "@/styles/element/index.scss" as *;`,
+        },
+      },
+    },
     plugins: [
       vue(),
       vueJsx(),

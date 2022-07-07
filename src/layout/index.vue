@@ -30,6 +30,7 @@ import AppHeader from './components/AppHeader/index.vue'
   &>main {
     padding: 20px;
     flex: 1;
+    height: calc(100% - 7.40740741vh);
   }
 }
 </style>
