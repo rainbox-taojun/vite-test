@@ -67,7 +67,7 @@ export default [
         code: 200,
         data: [
           {
-            "name": "治安评估指数", 
+            "name": "市民政局", 
             "value": "93" 
           }
         ]
