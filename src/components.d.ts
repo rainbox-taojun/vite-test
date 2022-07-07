@@ -9,6 +9,10 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AreaSelect: typeof import('./components/AreaSelect.vue')['default']
     DynamicTable: typeof import('./components/DynamicTable/index.vue')['default']
+    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
+    ElDivider: typeof import('element-plus/es')['ElDivider']
+    ElTable: typeof import('element-plus/es')['ElTable']
+    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     PanelV1: typeof import('./components/PanelV1.vue')['default']
     PanelV2: typeof import('./components/PanelV2.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
