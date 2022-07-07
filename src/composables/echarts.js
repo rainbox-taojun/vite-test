@@ -1,11 +1,11 @@
 import * as echarts from 'echarts'
 import { useEventListener } from './index'
 
-export function useEcharts(el, option) {
+export function useEcharts(id, option) {
   const chart = ref(null)
 
   const initChart = () => {
-    chart.value = echarts.init(el)
+    chart.value = echarts.init(document.getElementById(id))
     chart.value.setOption(option)
   }
 

@@ -23,3 +23,11 @@ export function getGovLeaders() {
     method: 'post'
   })
 }
+
+// 平安法制
+export function getLawInfo() {
+  return request({
+    url: '/safety/index',
+  })
+}
+
