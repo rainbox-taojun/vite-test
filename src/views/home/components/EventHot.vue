@@ -1,5 +1,7 @@
 <script setup lang="jsx">
 // 事件热榜
+import { getEventHot } from '@/api'
+
 const columns = ref([
   {
     label: '',
@@ -9,12 +11,8 @@ const columns = ref([
     )
   },
   {
-    label: '事件类型',
-    key: 'type',
-  },
-  {
     label: '事件内容',
-    key: 'content',
+    key: 'name',
   },
   {
     label: '数量(件)',
@@ -24,12 +22,18 @@ const columns = ref([
     )
   }
 ])
-const data = ref([
-  { type: '道路施工', content: '事件内容事件内容 事件内容', value: 2347 },
-  { type: '城市园林', content: '事件内容事件内容', value: 2347 },
-  { type: '公共设施', content: '事件内容事件内容 事件内容', value: 2347 },
-  { type: '交通管制', content: '事件内容事件内容 事件内容', value: 2347 },
-])
+const data = ref([])
+
+const getData = async () => {
+  const res = await getEventHot()
+  if (res.code === 200) {
+    data.value = res.data
+  }
+}
+
+onMounted(() => {
+  getData()
+})
 </script>
 
 <template>
@@ -86,7 +90,6 @@ const data = ref([
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    height: 48px;
     line-height: 14px;
     overflow: hidden;
     text-overflow: ellipsis;
