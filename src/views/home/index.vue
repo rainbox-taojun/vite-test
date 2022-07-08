@@ -58,7 +58,8 @@ import MapView from './components/MapView/index.vue'
 
   &>.center {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, calc(50% - 10px));
+    ;
     grid-template-rows: calc(30% - 40px / 3) calc(30% - 40px / 3) calc(40% - 40px / 3);
     grid-gap: 20px;
     height: 100%;

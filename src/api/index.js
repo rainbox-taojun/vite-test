@@ -31,3 +31,18 @@ export function getLawInfo() {
   })
 }
 
+// 经济生态
+export function getEconomic() {
+  return request({
+    url: '/economic',
+  })
+}
+
+
+// 公共服务
+export function getPublicService() {
+  return request({
+    url: '/safety/index',
+  })
+}
+
