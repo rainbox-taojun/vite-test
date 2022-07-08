@@ -18,22 +18,18 @@ const items = ref([
     <div class="box">
       <div class="knowledge item">
         <div class="title">知识</div>
-        <div class="value">83</div>
       </div>
 
       <div class="data item">
         <div class="title">数据</div>
-        <div class="value">291</div>
       </div>
 
       <div class="algorithm item">
         <div class="title">算法</div>
-        <div class="value">291</div>
       </div>
 
       <div class="model item">
         <div class="title">模型</div>
-        <div class="value">83</div>
       </div>
 
       <div class="case item ">

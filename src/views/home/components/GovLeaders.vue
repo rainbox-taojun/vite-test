@@ -1,8 +1,10 @@
 <script setup>
 // 党政统领
-import { usePie3d } from '../composables/pie3d'
 import { getGovLeaders } from '@/api'
+import GovLeadersPop from './GovLeadersPop/index.vue'
+import { usePie3d } from '../composables/pie3d'
 
+const dialogVisible = ref(false)
 const eduData = ref({})
 const postionData = ref({})
 const colorList = ['rgba(32,159,237,1)', 'rgba(255,159,32,1)', 'rgba(159,255,237,1)', 'rgba(159,255,32,1)']
@@ -33,7 +35,10 @@ onMounted(async () => {
 <template>
   <PanelV2 class="gov-leaders">
     <template v-slot:title>
-      <div class="title-img"></div>
+      <div
+        class="title-img"
+        @click="dialogVisible = true"
+      />
     </template>
 
     <div class="content-wrap">
@@ -65,6 +70,8 @@ onMounted(async () => {
       </div>
     </div>
   </PanelV2>
+
+  <GovLeadersPop v-model="dialogVisible" />
 </template>
 
 <style lang="scss" scoped>
