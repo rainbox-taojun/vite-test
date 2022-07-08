@@ -50,3 +50,17 @@ export function getEventHot () {
     url: '/evt/getWorkOrderSecondByKeyword',
   })
 }
+
+// 关键词获取
+export function getKeywords () {
+  return request({
+    url: '/evt/getWorkOrderKeywords',
+  })
+}
+
+// 获取热力图
+export function getHeatmap (keyword) {
+  return request({
+    url: `/evt/getWorkOrderLocation?keyword=${keyword}`,
+  })
+}

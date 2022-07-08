@@ -12,8 +12,8 @@ const colorList = ['rgba(32,159,237,1)', 'rgba(255,159,32,1)', 'rgba(159,255,237
 const getData = async () => {
   const res = await getGovLeaders()
   if (res.code === 200) {
-    eduData.value = res.data.education
-    postionData.value = res.data.position.map(item => {
+    eduData.value = res.data.chart4
+    postionData.value = res.data.chart2.map(item => {
       return {
         ...item,
         value: Number.parseFloat(item.value)

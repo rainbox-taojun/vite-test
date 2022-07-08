@@ -1,5 +1,7 @@
-<script setup>
+<script setup name="SmartElement">
 // 智能要素
+import SmartElementPop from './SmartElementPop.vue'
+
 const items = ref([
   { label: '知识', value: 83 },
   { label: '数据', value: 291 },
@@ -8,6 +10,8 @@ const items = ref([
   { label: '案例', value: 83 },
   { label: '案例', value: 83 },
 ])
+
+const dialogVisible = ref(false)
 </script>
 
 <template>
@@ -20,7 +24,10 @@ const items = ref([
         <div class="title">知识</div>
       </div>
 
-      <div class="data item">
+      <div
+        class="data item"
+        @click="dialogVisible = true"
+      >
         <div class="title">数据</div>
       </div>
 
@@ -41,6 +48,8 @@ const items = ref([
       </div>
     </div>
   </PanelV1>
+
+  <SmartElementPop v-model="dialogVisible" />
 </template>
 
 <style lang="scss" scoped>
