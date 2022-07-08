@@ -39,7 +39,7 @@ export function getEconomic () {
 // 公共服务
 export function getPublicService () {
   return request({
-    url: '/safety/index',
+    url: '/public/service',
   })
 }
 
