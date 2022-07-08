@@ -2,17 +2,54 @@
 // 考核评价
 import { getAssessment } from '@/api'
 
-const list = ref([])
+const data = ref([
+  {
+    title: '市委组织部',
+    list: [
+      '建成1000个“共享社幸福里”示范点'
+    ]
+  },
+  {
+    title: '市司法局',
+    list: [
+      '创建42个省级引领农村社区',
+      '创建58个市级完善型农村社区'
+    ]
+  },
+  {
+    title: '市文明中心',
+    list: [
+      '创成100个市级文明村',
+      '创成20个文明示范村',
+      '创成100个文明家庭',
+      '创成10个乡风文明最美乡镇'
+    ]
+  },
+  {
+    title: '农业农村局',
+    list: [
+      '新建35个未来乡村',
+      '培育57个未来乡村'
+    ]
+  },
+  {
+    title: '住建局',
+    list: [
+      '创建5家未来社区',
+      '打造8个省级省级城乡风貌样板区'
+    ]
+  }
+])
 
-const getList = async () => {
+const getData = async () => {
   const res = await getAssessment()
   if (res.code === 200) {
-    list.value = res.data
+    data.value = res.data
   }
 }
 
 onMounted(() => {
-  // getList()
+  // getData()
 })
 </script>
 
@@ -26,13 +63,19 @@ onMounted(() => {
     </template>
 
     <ul class="list">
-      <li class="list-item">
-        <h2 class="title">市民政局</h2>
+      <li
+        v-for="item in data"
+        class="list-item"
+      >
+        <h2 class="title">{{ item.title }}</h2>
 
         <div class="tag"></div>
 
-        <div class="line">
-          <h4 class="subtitle">创建省级引领型农村社区42个</h4>
+        <div
+          v-for="subitem in item.list"
+          class="line"
+        >
+          <h4 class="subtitle">{{ subitem }}</h4>
           <div class="percentage">
             已完成<span class="value">50</span>%
           </div>
@@ -40,18 +83,6 @@ onMounted(() => {
             <div
               class="bar"
               :style="{ width: '50%' }"
-            />
-          </div>
-        </div>
-        <div class="line">
-          <h4 class="subtitle">市级完善型农村社区58个</h4>
-          <div class="percentage">
-            已完成<span class="value">100</span>%
-          </div>
-          <div class="bar-box">
-            <div
-              class="bar"
-              :style="{ width: '100%' }"
             />
           </div>
         </div>
@@ -69,6 +100,7 @@ onMounted(() => {
 
     .list-item {
       position: relative;
+      margin-bottom: 13px;
       padding: 7px 10px;
       background: #082864;
 
@@ -108,9 +140,10 @@ onMounted(() => {
       }
 
       .line {
+        margin-bottom: 11px;
         display: grid;
         grid-template-columns: auto 80px;
-        grid-template-rows: 20px 10px;
+        grid-template-rows: auto 10px;
         grid-template-areas:
           'title percentage'
           'bar bar';
