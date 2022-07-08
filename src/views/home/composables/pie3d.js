@@ -197,7 +197,7 @@ export function usePie3d(id, data = [], colors) {
           zoomSensitivity: 0,
           panSensitivity: 0,
           autoRotate: true,
-          distance: 200,
+          distance: 190,
         },
         // 后处理特效可以为画面添加高光、景深、环境光遮蔽（SSAO）、调色等效果。可以让整个画面更富有质感。
         postEffect: {

@@ -3,6 +3,7 @@
 import * as echarts from 'echarts'
 import { getLawInfo } from '@/api'
 import { useEcharts } from '@/composables'
+import { parseTime } from '@/utils'
 
 const list = ref([])  // 列表数据
 const chartData = ref({ x: [], y: [] }) // 图表数据
@@ -18,8 +19,7 @@ const chartDataMax = computed(() => {
 // x轴美化后
 const xAxis = computed(() => {
   return chartData.value.x.map(item => {
-    const s = item.split('-')
-    return s[1] + '-' + s[2]
+    return parseTime(new Date(item), '{m}-{d}')
   })
 })
 
@@ -45,10 +45,41 @@ const options = computed(() => {
         //坐标轴刻度相关设置。
         show: false,
       },
+      splitLine: {
+        show: false
+      },
       data: xAxis.value
     },
     yAxis: {
       type: 'value',
+      splitLine: {
+        show: false
+      },
+      axisLabel: {
+        formatter: function (params) {
+          function nFormatter (num, digits) {
+            const si = [
+              { value: 1, symbol: "" },
+              { value: 1E3, symbol: "K" },
+              { value: 1E6, symbol: "M" },
+              { value: 1E9, symbol: "G" },
+              { value: 1E12, symbol: "T" },
+              { value: 1E15, symbol: "P" },
+              { value: 1E18, symbol: "E" }
+            ];
+            const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+            let i;
+            for (i = si.length - 1; i > 0; i--) {
+              if (num >= si[i].value) {
+                break;
+              }
+            }
+            return (num / si[i].value).toFixed(digits).replace(rx, "$1") + si[i].symbol;
+          }
+
+          return nFormatter(params, 2)
+        }
+      },
       min: chartDataMin.value,
       max: chartDataMax.value
     },
@@ -116,11 +147,11 @@ onMounted(() => {
     <div class="content-wrap">
       <ul class="list">
         <li
-          v-for="item in list"
+          v-for="(item, index) in list"
           class="list-item"
         >
           <div class="name">{{ item.name }}</div>
-          <div class="value">{{ item.value }} 次</div>
+          <div class="value">{{ item.value }} {{ index === 0 ? '人' : '次' }}</div>
         </li>
       </ul>
 
