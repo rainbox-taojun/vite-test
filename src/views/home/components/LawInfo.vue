@@ -59,36 +59,32 @@ const options = computed(() => {
         smooth: true,
         symbol: 'none',
         lineStyle: {
-          normal: {
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              {
-                offset: 0,
-                color: '#FFA040'
-              },
-              {
-                offset: 1,
-                color: '#FFD959'
-              }
-            ]),
-            shadowBlur: 10
-          }
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: '#FFA040'
+            },
+            {
+              offset: 1,
+              color: '#FFD959'
+            }
+          ]),
+          shadowBlur: 10
         },
         areaStyle: { //区域填充样式
-          normal: {
-            //线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              {
-                offset: 0,
-                color: "rgba(255, 219, 90, 0.5500)"
-              },
-              {
-                offset: 1,
-                color: "rgba(255, 219, 90, 0)"
-              }
-            ], false),
-            shadowColor: 'rgba(25,163,223, 0.5)', //阴影颜色
-            shadowBlur: 20 //shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
-          }
+          //线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: "rgba(255, 219, 90, 0.5500)"
+            },
+            {
+              offset: 1,
+              color: "rgba(255, 219, 90, 0)"
+            }
+          ], false),
+          shadowColor: 'rgba(25,163,223, 0.5)', //阴影颜色
+          shadowBlur: 20 //shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
         },
       }
     ]

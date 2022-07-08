@@ -1,29 +1,12 @@
 import * as echarts from 'echarts'
 import 'echarts-gl'
 
-export function usePie3d(id, data = [
-  {
-    name: "啤酒",
-    value: 25,
-  },
-  {
-    name: "高粱酒",
-    value: 25,
-  },
-  {
-    name: "桃花酿",
-    value: 30,
-  },
-  {
-    name: "白酒",
-    value: 20,
-  },
-]) {
+export function usePie3d(id, data = [], colors) {
   let selectedIndex = '';
   let hoveredIndex = '';
   var myChart = echarts.init(document.getElementById(id));
 
-  const colorList = ['rgba(32,159,237,1)', 'rgba(255,159,32,1)', 'rgba(159,255,237,1)', 'rgba(159,255,32,1)']
+  const colorList = colors
   const dataSource = data
   const paramsList = dataSource.map((item, index) => {
     return {
@@ -206,7 +189,6 @@ export function usePie3d(id, data = [
       grid3D: {
         show: false,
         boxHeight: 5,
-        top: '-20%',
         viewControl: {
           // 3d效果可以放大、旋转等，请自己去查看官方配置
           alpha: 25,
@@ -215,7 +197,7 @@ export function usePie3d(id, data = [
           zoomSensitivity: 0,
           panSensitivity: 0,
           autoRotate: true,
-          distance: 150,
+          distance: 200,
         },
         // 后处理特效可以为画面添加高光、景深、环境光遮蔽（SSAO）、调色等效果。可以让整个画面更富有质感。
         postEffect: {
