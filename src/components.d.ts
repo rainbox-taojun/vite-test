@@ -19,6 +19,7 @@ declare module '@vue/runtime-core' {
     ElRow: typeof import('element-plus/es')['ElRow']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
+    ElTableV2: typeof import('element-plus/es')['ElTableV2']
     PanelV1: typeof import('./components/PanelV1.vue')['default']
     PanelV2: typeof import('./components/PanelV2.vue')['default']
     Popup: typeof import('./components/Popup.vue')['default']

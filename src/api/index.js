@@ -78,3 +78,10 @@ export function getDemocratic () {
     url: `/dltj/democratic`,
   })
 }
+
+// 基层智治系统双月工作任务进度表
+export function getDoubleMoon () {
+  return request({
+    url: `/assessment/schedule`,
+  })
+}

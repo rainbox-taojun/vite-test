@@ -1,6 +1,6 @@
 <script setup name="Home">
 import CitySigns from './components/CitySigns.vue'
-import Assessment from './components/Assessment.vue'
+import Assessment from './components/Assessment/index.vue'
 import ScenarioApp from './components/ScenarioApp.vue'
 import MissionStatus from './components/MissionStatus.vue'
 import EventHot from './components/EventHot.vue'

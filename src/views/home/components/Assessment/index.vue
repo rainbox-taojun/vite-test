@@ -1,7 +1,9 @@
-<script setup>
+<script setup name="Assessment">
 // 考核评价
 import { getAssessment } from '@/api'
+import AssessmentPop from './components/AssessmentPop.vue'
 
+const dialogVisible = ref(false)
 const data = ref([
   {
     title: '市委组织部',
@@ -59,7 +61,7 @@ onMounted(() => {
     class="assessment"
   >
     <template v-slot:title-right>
-      <router-link to="/">全部></router-link>
+      <div @click="dialogVisible = true">全部></div>
     </template>
 
     <ul class="list">
@@ -89,6 +91,8 @@ onMounted(() => {
       </li>
     </ul>
   </PanelV1>
+
+  <AssessmentPop v-model="dialogVisible" />
 </template>
 
 <style lang="scss" scoped>
