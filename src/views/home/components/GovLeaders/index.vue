@@ -1,8 +1,8 @@
-<script setup>
+<script setup name="GovLeaders">
 // 党政统领
 import { getGovLeaders } from '@/api'
-import GovLeadersPop from './GovLeadersPop/index.vue'
-import { usePie3d } from '../composables/pie3d'
+import GovLeadersPop from './components/GovLeadersPop.vue'
+import { usePie3d } from '../../composables/pie3d'
 
 const dialogVisible = ref(false)
 const eduData = ref({})
@@ -79,7 +79,7 @@ onMounted(async () => {
   .title-img {
     width: 284px;
     height: 100%;
-    background-image: url(../../../assets/gov-leaders-title_bg.png);
+    background-image: url(@/assets/gov-leaders-title_bg.png);
     background-size: contain;
     background-repeat: no-repeat;
   }

@@ -8,10 +8,15 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AreaSelect: typeof import('./components/AreaSelect.vue')['default']
+    ChartRender: typeof import('./components/ChartRender.vue')['default']
     DynamicTable: typeof import('./components/DynamicTable/index.vue')['default']
+    ElCol: typeof import('element-plus/es')['ElCol']
+    ElCollapse: typeof import('element-plus/es')['ElCollapse']
+    ElCollapseItem: typeof import('element-plus/es')['ElCollapseItem']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElDialog: typeof import('element-plus/es')['ElDialog']
     ElDivider: typeof import('element-plus/es')['ElDivider']
+    ElRow: typeof import('element-plus/es')['ElRow']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     PanelV1: typeof import('./components/PanelV1.vue')['default']

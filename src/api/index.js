@@ -64,3 +64,17 @@ export function getHeatmap (keyword) {
     url: `/evt/getWorkOrderLocation?keyword=${keyword}`,
   })
 }
+
+// 党建统领详情-党建发展
+export function getDevelopment () {
+  return request({
+    url: `/dltj/development`,
+  })
+}
+
+// 党建统领详情-民主党派
+export function getDemocratic () {
+  return request({
+    url: `/dltj/democratic`,
+  })
+}
