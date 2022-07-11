@@ -5,14 +5,18 @@ import GovLeadersPop from './components/GovLeadersPop.vue'
 import { usePie3d } from '../../composables/pie3d'
 
 const dialogVisible = ref(false)
-const eduData = ref({})
+const eduData = ref([
+  { name: '公务员总人数', value: '32094', unit: '人' },
+  { name: '党员总数', value: '51454', unit: '人' },
+  { name: '党员平均年龄', value: '41.79', unit: '岁' },
+])
 const postionData = ref({})
 const colorList = ['rgba(32,159,237,1)', 'rgba(255,159,32,1)', 'rgba(159,255,237,1)', 'rgba(159,255,32,1)']
 
 const getData = async () => {
   const res = await getGovLeaders()
   if (res.code === 200) {
-    eduData.value = res.data.chart4
+    // eduData.value = res.data.chart4
     postionData.value = res.data.chart2.map(item => {
       return {
         ...item,
@@ -42,9 +46,12 @@ onMounted(async () => {
     </template>
 
     <div class="content-wrap">
-      <div class="line">
-        <div class="name">{{ eduData[0]?.name }}</div>
-        <div class="value">{{ getPrettyPercentage(eduData[0]?.value) }}</div>
+      <div
+        v-for="item in eduData"
+        class="line"
+      >
+        <div class="name">{{ item.name }}</div>
+        <div class="value">{{ item.value }} {{ item.unit }}</div>
       </div>
 
       <div class="chart-wrap">
@@ -63,11 +70,6 @@ onMounted(async () => {
           </li>
         </ul>
       </div>
-
-      <div class="line">
-        <div class="name">{{ eduData[1]?.name }}</div>
-        <div class="value">{{ getPrettyPercentage(eduData[1]?.value) }}</div>
-      </div>
     </div>
   </PanelV2>
 
@@ -82,6 +84,7 @@ onMounted(async () => {
     background-image: url(@/assets/gov-leaders-title_bg.png);
     background-size: contain;
     background-repeat: no-repeat;
+    cursor: pointer;
   }
 
   .content-wrap {

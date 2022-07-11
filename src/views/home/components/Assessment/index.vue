@@ -61,7 +61,10 @@ onMounted(() => {
     class="assessment"
   >
     <template v-slot:title-right>
-      <div @click="dialogVisible = true">全部></div>
+      <div
+        class="link"
+        @click="dialogVisible = true"
+      >全部></div>
     </template>
 
     <ul class="list">
@@ -97,6 +100,10 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .assessment {
+  .link {
+    cursor: pointer;
+  }
+
   .list {
     list-style-type: none;
     margin: 10px;

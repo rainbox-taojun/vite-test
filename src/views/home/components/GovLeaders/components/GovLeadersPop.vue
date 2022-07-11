@@ -23,6 +23,16 @@ const visible = computed({
     emit('update:modelValue', val)
   }
 })
+
+const links = ref([
+  { name: '为侨服务“全球通”', link: 'https://dataview.enotary.com.cn/wzqqt/' },
+  { name: '龙港热词分析', link: 'https://kbase-wenzhou-test.wenzhou.gov.cn:8081/lg-hotword-ai-web/#/longgang' },
+  { name: 'NLP数据分析平台', link: 'https://kbase-wenzhou-test.wenzhou.gov.cn:8081/lg-hotword-ai-web/#/nlp-ai' }
+])
+
+const jump = (link) => {
+  window.open(link, '_blank')
+}
 </script>
 
 <template>
@@ -68,7 +78,13 @@ const visible = computed({
         :gutter="20"
         class="bottom-row"
       >
-
+        <div
+          v-for="item in links"
+          class="link"
+          @click="jump(item.link)"
+        >
+          {{ item.name }}
+        </div>
       </div>
     </div>
   </Popup>
@@ -95,6 +111,27 @@ const visible = computed({
   .bottom-row {
     display: flex;
     height: 115px;
+
+    .link {
+      margin-right: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 500;
+      color: #FFFFFF;
+      line-height: 22px;
+      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5000);
+      width: calc((100% - 32px) / 3);
+      height: 88px;
+      background-image: url(@/assets/gov-leaders-pop-link_bg.png);
+      background-size: 100% 100%;
+      cursor: pointer;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }
 </style>

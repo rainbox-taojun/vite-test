@@ -27,7 +27,9 @@ const data = ref([])
 const getData = async () => {
   const res = await getEventHot()
   if (res.code === 200) {
-    data.value = res.data
+    data.value = res.data.sort((a, b) => {
+      return b.value - a.value
+    })
   }
 }
 

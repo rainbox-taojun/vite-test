@@ -18,16 +18,14 @@ const dialogVisible = ref(false)
   <PanelV1
     title="智能要素"
     class="smart-element"
+    @click="dialogVisible = true"
   >
     <div class="box">
       <div class="knowledge item">
         <div class="title">知识</div>
       </div>
 
-      <div
-        class="data item"
-        @click="dialogVisible = true"
-      >
+      <div class="data item">
         <div class="title">数据</div>
       </div>
 
@@ -54,6 +52,8 @@ const dialogVisible = ref(false)
 
 <style lang="scss" scoped>
 .smart-element {
+  cursor: pointer;
+
   .box {
     position: relative;
     width: 100%;
