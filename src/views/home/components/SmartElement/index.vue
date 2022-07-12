@@ -41,7 +41,7 @@ const dialogVisible = ref(false)
         <div class="title">案例</div>
       </div>
 
-      <div class="tool item">
+      <div class="tool item ">
         <div class="title">工具</div>
       </div>
     </div>
@@ -65,12 +65,13 @@ const dialogVisible = ref(false)
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      font-size: 21px;
       background-image: url(@/assets/smart-element-item_bg.png);
       background-repeat: no-repeat;
       background-size: contain;
 
       .title {
-        font-size: 21px;
+
         color: #FFFFFF;
         line-height: 30px;
         text-shadow: 0px 2px 5px #3196FA;
