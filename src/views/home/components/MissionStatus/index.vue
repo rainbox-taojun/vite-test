@@ -1,11 +1,15 @@
-<script setup>
+<script setup name="MissionStatus">
 // 任务贯通情况
+import MorePop from './components/MorePop.vue'
+
 const list = ref([
   { label: '七张问题清单', link: '/' },
-  { label: '疫情在线', link: '/' },
+  { label: 'e行在线', link: '/' },
   { label: '防汛防台', link: '/' },
-  { label: '七张问题清单', link: '/' }
+  { label: '社区矫正', link: '/' }
 ])
+
+const dialogVisible = ref(false)
 </script>
 
 <template>
@@ -14,7 +18,10 @@ const list = ref([
     class="mission-status"
   >
     <template v-slot:title-right>
-      <router-link to="/">更多></router-link>
+      <div
+        class="link"
+        @click="dialogVisible = true"
+      >更多></div>
     </template>
 
     <ul class="list">
@@ -26,10 +33,16 @@ const list = ref([
       </li>
     </ul>
   </PanelV1>
+
+  <MorePop v-model="dialogVisible" />
 </template>
 
 <style lang="scss" scoped>
 .mission-status {
+  .link {
+    cursor: pointer;
+  }
+
   .list {
     list-style-type: none;
     margin: 0;

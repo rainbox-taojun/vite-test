@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="pop-panel">
+  <div class="pop-model-panel">
     <header>
       <div class="title">
         {{ props.modelValue.title }}
@@ -26,7 +26,7 @@ const props = defineProps({
 </template>
 
 <style lang="scss">
-.pop-panel {
+.pop-model-panel {
   margin-right: 30px;
   margin-bottom: 20px;
   width: calc(50% - 15px);

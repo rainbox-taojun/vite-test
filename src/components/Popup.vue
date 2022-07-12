@@ -8,6 +8,10 @@ const props = defineProps({
   title: {
     type: String,
     default: '弹出窗'
+  },
+  height: {
+    type: String,
+    default: ''
   }
 })
 const emit = defineEmits(['update:modelValue'])
@@ -30,6 +34,14 @@ const visible = computed({
     draggable
     top="10vh"
   >
+    <template #header="{ close, titleId, titleClass }">
+      <slot
+        name="header"
+        :close="close"
+        :titleId="titleId"
+        :titleClass="titleClass"
+      />
+    </template>
     <slot />
   </el-dialog>
 </template>

@@ -1,6 +1,7 @@
 <script setup name="SmartElement">
 // 智能要素
-import SmartElementPop from './SmartElementPop.vue'
+import ModelAndAlgorithmPop from './ModelAndAlgorithmPop.vue'
+import DataPop from './DataPop.vue'
 
 const items = ref([
   { label: '知识', value: 83 },
@@ -11,43 +12,57 @@ const items = ref([
   { label: '案例', value: 83 },
 ])
 
-const dialogVisible = ref(false)
+const modelAndAlgorithmVisible = ref(false)
+const isOpenModelPop = ref(true)
+const dataVisible = ref(false)
 </script>
 
 <template>
   <PanelV1
     title="智能要素"
     class="smart-element"
-    @click="dialogVisible = true"
   >
     <div class="box">
       <div class="knowledge item">
         <div class="title">知识</div>
       </div>
 
-      <div class="data item">
+      <div
+        class="data item"
+        @click="dataVisible = true"
+      >
         <div class="title">数据</div>
       </div>
 
-      <div class="algorithm item">
+      <div
+        class="algorithm item"
+        @click="() => { modelAndAlgorithmVisible = true, isOpenModelPop = false }"
+      >
         <div class="title">算法</div>
       </div>
 
-      <div class="model item">
+      <div
+        class="model item"
+        @click="() => { modelAndAlgorithmVisible = true, isOpenModelPop = true }"
+      >
         <div class="title">模型</div>
       </div>
 
-      <div class="case item ">
+      <!-- <div class="case item ">
         <div class="title">案例</div>
       </div>
 
       <div class="tool item ">
         <div class="title">工具</div>
-      </div>
+      </div> -->
     </div>
   </PanelV1>
 
-  <SmartElementPop v-model="dialogVisible" />
+  <ModelAndAlgorithmPop
+    v-model="modelAndAlgorithmVisible"
+    :is-model="isOpenModelPop"
+  />
+  <DataPop v-model="dataVisible" />
 </template>
 
 <style lang="scss" scoped>
