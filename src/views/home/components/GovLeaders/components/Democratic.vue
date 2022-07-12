@@ -22,8 +22,9 @@ const chartTemp = {
   },
   legend: {
     show: true,
-    top: 'bottom',
-    left: 'right',
+    orient: 'vertical',
+    top: 'center',
+    right: '25%',
     data: [],
     padding: [0, 5],
     textStyle: {
@@ -34,8 +35,8 @@ const chartTemp = {
     {
       name: '',
       type: 'pie',
-      center: ['50%', '25%'],
-      radius: ['20%', '40%'],
+      center: ['25%', '50%'],
+      radius: ['45%', '90%'],
       avoidLabelOverlap: false,
       label: {
         show: false,
@@ -94,7 +95,7 @@ const handleOpen = (activeNames) => {
             :name="index"
             :title="item.name"
           >
-            <div :style="{ width: '100%', height: '250px' }">
+            <div :style="{ width: '100%', height: '120px' }">
               <ChartRender
                 ref="chartsRefs"
                 :option="getChartsOption(index)"
@@ -123,7 +124,7 @@ const handleOpen = (activeNames) => {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  max-height: 360px;
+  max-height: 420px;
   background: rgba(8, 40, 100, 0.6000);
 
   header {

@@ -5,8 +5,8 @@ import EventPanel from './EventPanel.vue'
 import AppPanel from './AppPanel.vue'
 import Developing from './Developing.vue'
 import Democratic from './Democratic.vue'
-import Social from './Social.vue'
-import Medical from './Medical.vue'
+// import Social from './Social.vue'
+// import Medical from './Medical.vue'
 
 const props = defineProps({
   modelValue: {
@@ -24,11 +24,11 @@ const visible = computed({
   }
 })
 
-const links = ref([
-  { name: '为侨服务“全球通”', link: 'https://dataview.enotary.com.cn/wzqqt/' },
-  { name: '龙港热词分析', link: 'https://kbase-wenzhou-test.wenzhou.gov.cn:8081/lg-hotword-ai-web/#/longgang' },
-  { name: 'NLP数据分析平台', link: 'https://kbase-wenzhou-test.wenzhou.gov.cn:8081/lg-hotword-ai-web/#/nlp-ai' }
-])
+// const links = ref([
+//   { name: '为侨服务“全球通”', link: 'https://dataview.enotary.com.cn/wzqqt/' },
+//   { name: '龙港热词分析', link: 'https://kbase-wenzhou-test.wenzhou.gov.cn:8081/lg-hotword-ai-web/#/longgang' },
+//   { name: 'NLP数据分析平台', link: 'https://kbase-wenzhou-test.wenzhou.gov.cn:8081/lg-hotword-ai-web/#/nlp-ai' }
+// ])
 
 const jump = (link) => {
   window.open(link, '_blank')
@@ -60,21 +60,21 @@ const jump = (link) => {
         :gutter="10"
         class="center-row"
       >
-        <el-col :span="6">
+        <el-col :span="12">
           <Developing />
         </el-col>
-        <el-col :span="6">
+        <el-col :span="12">
           <Democratic />
         </el-col>
-        <el-col :span="6">
+        <!-- <el-col :span="6">
           <Social />
         </el-col>
         <el-col :span="6">
           <Medical />
-        </el-col>
+        </el-col> -->
       </el-row>
 
-      <div
+      <!-- <div
         :gutter="20"
         class="bottom-row"
       >
@@ -85,7 +85,7 @@ const jump = (link) => {
         >
           {{ item.name }}
         </div>
-      </div>
+      </div> -->
     </div>
   </Popup>
 </template>
@@ -99,11 +99,13 @@ const jump = (link) => {
   .top-row {
     margin-bottom: 14px;
     display: flex;
-    height: 190px;
+    // height: 190px;
+    height: 250px;
   }
 
   .center-row {
     flex: 1;
+    height: calc(100% - 250px);
     margin-bottom: 14px;
     display: flex;
   }
