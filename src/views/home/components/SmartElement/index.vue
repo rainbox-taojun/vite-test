@@ -86,47 +86,47 @@ const dialogVisible = ref(false)
     }
 
     .knowledge {
-      top: 16px;
-      left: 39px;
-      width: 98px;
-      height: 98px;
+      top: 5.1%;
+      left: 9.5%;
+      width: 9vh;
+      height: 9vh;
     }
 
     .data {
-      top: 23px;
-      right: 85px;
-      width: 110px;
-      height: 110px;
+      top: 7.4%;
+      right: 20%;
+      width: 10.18vh;
+      height: 10.18vh;
     }
 
     .algorithm {
-      top: 115px;
-      left: 103px;
-      width: 112px;
-      height: 112px;
+      top: 37%;
+      left: 25%;
+      width: 10.37vh;
+      height: 10.37vh;
     }
 
     .model {
-      top: 152px;
-      right: 33px;
-      width: 104px;
-      height: 104px;
+      bottom: 5.5%;
+      right: 8.2%;
+      width: 9.6vh;
+      height: 9.6vh;
     }
 
     .case {
-      top: 32px;
-      right: 28px;
-      width: 50px;
-      height: 50px;
+      top: 10.4%;
+      right: 6.9%;
+      width: 4.6vh;
+      height: 4.6vh;
       font-size: 12px;
       opacity: 0.7;
     }
 
     .tool {
-      top: 183px;
-      left: 33px;
-      width: 50px;
-      height: 50px;
+      bottom: 12%;
+      left: 8.22%;
+      width: 4.6vh;
+      height: 4.6vh;
       font-size: 12px;
       opacity: 0.7;
     }
