@@ -46,13 +46,9 @@
       />
       <el-table-column
         v-else
-        :label="item.label"
-        :type="item.type"
-        :width="item.width"
-        :min-width="item.minWidth"
-        :fixed="item.fixed"
         :align="item.align || 'left'"
         :header-align="item.headerAlign || 'left'"
+        v-bind="item"
       >
         <template #default="scope">
           <slot

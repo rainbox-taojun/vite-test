@@ -8,10 +8,6 @@ const props = defineProps({
   title: {
     type: String,
     default: '弹出窗'
-  },
-  height: {
-    type: String,
-    default: ''
   }
 })
 const emit = defineEmits(['update:modelValue'])
@@ -52,7 +48,6 @@ const visible = computed({
   background-image: url(@/assets/popup_bg.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  height: 800px;
 
   .ep-dialog__header {
     position: relative;

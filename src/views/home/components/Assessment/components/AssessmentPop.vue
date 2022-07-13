@@ -1,4 +1,4 @@
-<script setup name="AssessmentPop">
+<script lang="jsx" setup name="AssessmentPop">
 import { getDoubleMoon } from '@/api'
 
 const props = defineProps({
@@ -25,6 +25,7 @@ const columns = ref([
   {
     key: `col1`,
     label: `完成时限`,
+    width: '100px',
   },
   {
     key: `col2`,
@@ -33,6 +34,11 @@ const columns = ref([
   {
     key: `col3`,
     label: `工作状态`,
+    width: '100px',
+    render: (h, params) => {
+      const color = params.row.col3 === '已完成' ? '#32C5FF' : params.row.col3 === '进行中' ? '#44D7B6' : '#FABF1D'
+      return <span class='text' style={{ 'color': color }}> <i class="dot" style={{ 'background': color }}></i> {params.row.col3}</span >
+    }
   },
   {
     key: `col4`,
@@ -41,6 +47,7 @@ const columns = ref([
   {
     key: `col5`,
     label: `牵头单位`,
+    width: '150px',
   }
 ])
 const tableList = ref([])
@@ -653,7 +660,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .assessment-pop {
-  height: 100%;
+  height: 700px;
   overflow: auto;
 
   .title {
@@ -685,19 +692,20 @@ onMounted(() => {
   --ep-fill-color-light: #05183F;
   --ep-text-color-regular: #fff;
 
-  // :deep(.ep-table .ep-table__header) {}
+  :deep(.text) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
 
-  // :deep(.ep-table th.ep-table__cell) {
-  //   color: #CCF1FF;
-  //   background: #062F63;
-  //   border-bottom: 0 !important;
-  // }
-
-  // :deep(.ep-table--enable-row-transition .ep-table__body td.ep-table__cell) {
-  //   color: #fff;
-  //   background: #060A1F;
-  //   border-bottom: 1px solid rgba(0, 41, 81, 0.5000);
-  // }
+  :deep(.dot) {
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+  }
 }
 </style>
 

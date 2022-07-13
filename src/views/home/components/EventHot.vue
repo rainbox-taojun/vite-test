@@ -6,14 +6,17 @@ const columns = ref([
   {
     label: '事件名称',
     key: 'name',
+    showOverflowTooltip: true
   },
   {
     label: '对应算法',
     key: 'value1',
+    showOverflowTooltip: true
   },
   {
     label: '对应综合模型',
     key: 'value2',
+    showOverflowTooltip: true
   }
 ])
 const data = ref([])
