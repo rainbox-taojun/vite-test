@@ -239,8 +239,8 @@ const data = ref([
   overflow: auto;
 
   --ep-fill-color-light: #073164 !important;
-  --ep-border-color-lighter: #000 !important;
-  --ep-fill-color-blank: #05183E;
+  --ep-border-color-lighter: rgba(0, 0, 0, 0.2500) !important;
+  --ep-fill-color-blank: rgba(8, 40, 100, 0.6000);
   --ep-text-color-regular: #fff;
   --ep-text-color-secondary: #CCF1FF;
   ;

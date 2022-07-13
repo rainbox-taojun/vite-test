@@ -8,37 +8,37 @@ const data = ref([
   {
     title: '市委组织部',
     list: [
-      '建成1000个“共享社幸福里”示范点'
+      { name: '建成1000个“共享社幸福里”示范点', value: 50 }
     ]
   },
   {
     title: '市司法局',
     list: [
-      '创建42个省级引领农村社区',
-      '创建58个市级完善型农村社区'
+      { name: '创建42个省级引领农村社区', value: 69 },
+      { name: '创建58个市级完善型农村社区', value: 41 }
     ]
   },
   {
     title: '市文明中心',
     list: [
-      '创成100个市级文明村',
-      '创成20个文明示范村',
-      '创成100个文明家庭',
-      '创成10个乡风文明最美乡镇'
+      { name: '创成100个市级文明村', value: 45.5 },
+      { name: '创成20个文明示范村', value: 98 },
+      { name: '创成100个文明家庭', value: 90 },
+      { name: '创成10个乡风文明最美乡镇', value: 100 }
     ]
   },
   {
     title: '农业农村局',
     list: [
-      '新建35个未来乡村',
-      '培育57个未来乡村'
+      { name: '新建35个未来乡村', value: 70 },
+      { name: '培育57个未来乡村', value: 69 }
     ]
   },
   {
     title: '住建局',
     list: [
-      '创建5家未来社区',
-      '打造8个省级省级城乡风貌样板区'
+      { name: '创建5家未来社区', value: 29 },
+      { name: '打造8个省级省级城乡风貌样板区', value: 55 }
     ]
   }
 ])
@@ -80,14 +80,14 @@ onMounted(() => {
           v-for="subitem in item.list"
           class="line"
         >
-          <h4 class="subtitle">{{ subitem }}</h4>
+          <h4 class="subtitle">{{ subitem.name }}</h4>
           <div class="percentage">
-            已完成<span class="value">50</span>%
+            已完成<span class="value">{{ subitem.value }}</span>%
           </div>
           <div class="bar-box">
             <div
               class="bar"
-              :style="{ width: '50%' }"
+              :style="{ width: subitem.value + '%' }"
             />
           </div>
         </div>

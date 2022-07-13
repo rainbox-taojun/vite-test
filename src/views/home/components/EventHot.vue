@@ -35,7 +35,7 @@ onMounted(() => {
 
 <template>
   <PanelV1
-    title="事件热榜"
+    title="基层治理一件事"
     class="event-hot"
   >
     <template v-slot:title-right>

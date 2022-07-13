@@ -687,8 +687,8 @@ onMounted(() => {
 
   --ep-bg-color: #062F62;
   --ep-text-color-secondary: #CCF1FF;
-  --ep-fill-color-blank: #060A1E;
-  --ep-border-color-lighter: rgba(0, 41, 81, 0.5000);
+  --ep-fill-color-blank: rgba(8, 40, 100, 0.6000);
+  --ep-border-color-lighter: rgba(0, 0, 0, 0.2500);
   --ep-fill-color-light: #05183F;
   --ep-text-color-regular: #fff;
 
