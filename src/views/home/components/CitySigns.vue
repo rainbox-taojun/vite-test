@@ -1,6 +1,6 @@
 <script setup>
 // 城市体征
-import { getCitySigns } from '@/api'
+// import { getCitySigns } from '@/api'
 import air from '@/assets/city-icon_air.png'
 import changyou from '@/assets/city-icon_changyou.png'
 import gdp from '@/assets/city-icon_gdp.png'
@@ -29,6 +29,25 @@ const list = ref([
 // onMounted(() => {
 //   getList()
 // })
+
+const currentScroll = ref(0)
+const handleScroll = () => {
+  currentScroll.value += 1
+  const box = document.querySelector('.city-signs > main')
+  const step = list.value.length / 2
+  let distance = box.offsetHeight / step
+  if (currentScroll.value >= step) {
+    currentScroll.value = 0
+  }
+  box.scrollTo(0, currentScroll.value * distance)
+}
+
+onMounted(() => {
+  handleScroll()
+  setInterval(() => {
+    handleScroll()
+  }, 5000)
+})
 </script>
 
 <template>
@@ -36,7 +55,10 @@ const list = ref([
     title="城市体征"
     class="city-signs"
   >
-    <ul class="list">
+    <ul
+      class="list"
+      ref="listRef"
+    >
       <li
         v-for="item in list"
         class="list-item"
@@ -59,7 +81,13 @@ const list = ref([
 </template>
 
 <style lang="scss" scoped>
+:deep(.city-signs > main) {
+  scroll-behavior: smooth;
+}
+
 .city-signs {
+
+
   .list {
     list-style-type: none;
     margin: 10px 18px;

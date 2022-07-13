@@ -69,6 +69,7 @@ const { title } = defineProps({
     height: calc(100% - 38px);
     overflow-y: auto;
     overflow-x: hidden;
+    scroll-behavior: smooth;
   }
 }
 </style>
