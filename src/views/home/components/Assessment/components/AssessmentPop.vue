@@ -644,6 +644,7 @@ onMounted(() => {
           :columns="columns"
           :data="item"
           :span-method="objectSpanMethod"
+          border
         />
       </template>
     </div>
@@ -677,29 +678,25 @@ onMounted(() => {
     }
   }
 
+  --ep-bg-color: #062F62;
+  --ep-text-color-secondary: #CCF1FF;
+  --ep-fill-color-blank: #060A1E;
+  --ep-border-color-lighter: rgba(0, 41, 81, 0.5000);
+  --ep-fill-color-light: #05183F;
+  --ep-text-color-regular: #fff;
+
   // :deep(.ep-table .ep-table__header) {}
 
-  :deep(.ep-table th.ep-table__cell) {
-    color: #CCF1FF;
-    background: #062F63;
-    border-bottom: 0 !important;
-  }
+  // :deep(.ep-table th.ep-table__cell) {
+  //   color: #CCF1FF;
+  //   background: #062F63;
+  //   border-bottom: 0 !important;
+  // }
 
-  :deep(.ep-table--enable-row-transition .ep-table__body td.ep-table__cell) {
-    color: #fff;
-    background: #060A1F;
-    border-bottom: 1px solid rgba(0, 41, 81, 0.5000);
-  }
-
-
-  // :deep(.ep-table--enable-row-transition .ep-table__body td.ep-table__cell .cell) {
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   align-items: center;
-  //   line-height: 14px;
-  //   overflow: hidden;
-  //   text-overflow: ellipsis;
-  //   white-space: nowrap;
+  // :deep(.ep-table--enable-row-transition .ep-table__body td.ep-table__cell) {
+  //   color: #fff;
+  //   background: #060A1F;
+  //   border-bottom: 1px solid rgba(0, 41, 81, 0.5000);
   // }
 }
 </style>

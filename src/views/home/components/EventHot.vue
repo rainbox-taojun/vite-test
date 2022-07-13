@@ -4,22 +4,16 @@ import { getEventHot } from '@/api'
 
 const columns = ref([
   {
-    label: '',
-    width: '40px',
-    render: (h, params) => (
-      <div class="icon" />
-    )
-  },
-  {
-    label: '事件内容',
+    label: '事件名称',
     key: 'name',
   },
   {
-    label: '数量(件)',
-    key: 'value',
-    render: (h, params) => (
-      <span style="color: #FFD900">{params.row.value}</span>
-    )
+    label: '对应算法',
+    key: 'value1',
+  },
+  {
+    label: '对应综合模型',
+    key: 'value2',
   }
 ])
 const data = ref([])
@@ -27,9 +21,7 @@ const data = ref([])
 const getData = async () => {
   const res = await getEventHot()
   if (res.code === 200) {
-    data.value = res.data.sort((a, b) => {
-      return b.value - a.value
-    })
+    data.value = res.data.list
   }
 }
 
