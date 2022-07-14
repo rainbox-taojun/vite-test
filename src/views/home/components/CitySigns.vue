@@ -7,6 +7,7 @@ import gdp from '@/assets/city-icon_gdp.png'
 import jiaotong from '@/assets/city-icon_jiaotong.png'
 import pingan from '@/assets/city-icon_pingan.png'
 import zhian from '@/assets/city-icon_zhian.png'
+import { useAutoScroll } from '@/composables'
 
 const list = ref([
   { img: zhian, name: '治安评估指数', value: '96.0', tag: '优秀' },
@@ -30,24 +31,7 @@ const list = ref([
 //   getList()
 // })
 
-const currentScroll = ref(0)
-const handleScroll = () => {
-  currentScroll.value += 1
-  const box = document.querySelector('.city-signs > main')
-  const step = list.value.length / 2
-  let distance = box.offsetHeight / step
-  if (currentScroll.value >= step) {
-    currentScroll.value = 0
-  }
-  box.scrollTo(0, currentScroll.value * distance)
-}
-
-onMounted(() => {
-  handleScroll()
-  setInterval(() => {
-    handleScroll()
-  }, 5000)
-})
+useAutoScroll('.city-signs > main', '.city-signs .list', 100)
 </script>
 
 <template>
@@ -81,13 +65,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-:deep(.city-signs > main) {
-  scroll-behavior: smooth;
-}
-
 .city-signs {
-
-
   .list {
     list-style-type: none;
     margin: 10px 18px;
@@ -99,7 +77,7 @@ onMounted(() => {
       margin-bottom: 12px;
       padding: 11px 10px;
       display: grid;
-      grid-template-columns: 60px auto;
+      grid-template-columns: 45px auto;
       grid-template-rows: 19px 24px 20px;
       grid-template-areas:
         'icon name'
@@ -118,6 +96,7 @@ onMounted(() => {
         grid-area: icon;
         background-size: contain;
         background-repeat: no-repeat;
+        background-position: center;
       }
 
       .name {

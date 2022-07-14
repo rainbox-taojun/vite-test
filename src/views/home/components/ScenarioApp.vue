@@ -92,9 +92,11 @@ const jumpTo = (link) => {
 
     .tabs {
       margin: 8px 18px;
-      height: 24px;
       background-image: url(@/assets/scenario-app-nav_bg.png);
       background-size: 100% 100%;
+      display: flex;
+      justify-content: center;
+
 
       ul {
         margin: 0;
@@ -107,12 +109,14 @@ const jumpTo = (link) => {
         font-weight: 500;
         color: #FFFFFF;
         line-height: 18px;
+        width: 265px;
 
         .ep-divider:last-child {
           display: none;
         }
 
         li {
+          text-align: center;
           opacity: .7;
           box-sizing: border-box;
           cursor: pointer;
@@ -123,6 +127,12 @@ const jumpTo = (link) => {
           &.active {
             opacity: 1;
           }
+        }
+      }
+
+      @media screen and (min-width:1728px) {
+        ul {
+          width: 100%;
         }
       }
     }

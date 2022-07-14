@@ -21,7 +21,7 @@ const dialogVisible = ref(false)
       <div
         class="link"
         @click="dialogVisible = true"
-      >更多></div>
+      >使用情况></div>
     </template>
 
     <ul class="list">

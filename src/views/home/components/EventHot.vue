@@ -1,6 +1,7 @@
 <script setup lang="jsx">
 // 事件热榜
 import { getEventHot } from '@/api'
+import { useAutoScroll } from '@/composables'
 
 const columns = ref([
   {
@@ -31,6 +32,8 @@ const getData = async () => {
 onMounted(() => {
   getData()
 })
+
+useAutoScroll('.event-hot .ep-scrollbar__wrap--hidden-default', '.event-hot .ep-scrollbar__view')
 </script>
 
 <template>

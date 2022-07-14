@@ -2,10 +2,12 @@ import { useEventListener } from './event'
 import { useMouse } from './mouse'
 import { useAMap } from './amap'
 import { useEcharts } from './echarts'
+import { useAutoScroll } from './autoScroll'
 
 export {
   useEventListener,
   useMouse,
   useAMap,
-  useEcharts
+  useEcharts,
+  useAutoScroll
 }

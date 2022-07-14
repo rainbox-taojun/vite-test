@@ -62,6 +62,12 @@ onMounted(() => {
         height: 24px;
         color: #fff;
 
+        .name {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
         .value {
           color: rgba(90, 180, 255, 1);
         }
