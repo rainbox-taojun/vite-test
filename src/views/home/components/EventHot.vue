@@ -33,7 +33,7 @@ onMounted(() => {
   getData()
 })
 
-useAutoScroll('.event-hot .ep-scrollbar__wrap--hidden-default', '.event-hot .ep-scrollbar__view')
+// useAutoScroll('.event-hot .ep-scrollbar__wrap--hidden-default', '.event-hot .ep-scrollbar__view')
 </script>
 
 <template>

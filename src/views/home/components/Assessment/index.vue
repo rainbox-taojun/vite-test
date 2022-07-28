@@ -2,6 +2,7 @@
 // 考核评价
 import { getAssessment } from '@/api'
 import AssessmentPop from './components/AssessmentPop.vue'
+import { useAutoScroll } from '@/composables'
 
 const dialogVisible = ref(false)
 const data = ref([
@@ -53,6 +54,8 @@ const getData = async () => {
 onMounted(() => {
   // getData()
 })
+
+useAutoScroll('.assessment > main', '.assessment .list', 50)
 </script>
 
 <template>

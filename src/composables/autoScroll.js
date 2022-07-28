@@ -1,22 +1,65 @@
 export const useAutoScroll = (container, content, speed = 100) => {
   const timer = ref(null)
+  let parent = null
+  let child = null
 
-  onMounted(() => {
-    const parent = document.querySelector(container)
-    const child = document.querySelector(content)
-    let scrollTop = 0
+  const init = () => {
+    parent = document.querySelector(container)
+    child = document.querySelector(content)
+    parent.style.overflow = 'hidden' // 隐藏
+    child.style.marginTop = 0
+    child.style.marginBottom = 0
+    const newChild = child.cloneNode(true)
+    parent.appendChild(newChild)
+  }
+
+  const startScroll = (startTop = 0) => {
+    let scrollTop = startTop
 
     timer.value = setInterval(() => {
-      if (parent.scrollTop >= child.scrollHeight - parent.offsetHeight) {
-        scrollTop = 0
+      if (parent.scrollTop >= (child.scrollHeight * 2 - parent.offsetHeight)) {
+        const newChild = child.cloneNode(true)
+        parent.appendChild(newChild)
+        child.remove()
+        child = newChild
+
+        scrollTop -= child.scrollHeight
+
       } else {
         scrollTop++
       }
       parent.scrollTo(0, scrollTop)
     }, speed)
+  }
+
+  const stopScroll = () => {
+    clearTimeout(timer.value)
+  }
+
+  const setMouseEvent = () => {
+    parent.addEventListener('mouseover', () => {
+      parent.style.overflow = 'auto'
+      stopScroll()
+    })
+
+    parent.addEventListener('mouseout', () => {
+      parent.style.overflow = 'hidden'
+      startScroll(parent.scrollTop)
+    })
+  }
+
+  onMounted(() => {
+    init()
+    startScroll()
+    setMouseEvent()
   })
 
   onUnmounted(() => {
-    clearTimeout(timer.value)
+    stopScroll()
   })
+
+  return {
+    startScroll,
+    stopScroll
+  }
 }

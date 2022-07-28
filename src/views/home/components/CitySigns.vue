@@ -31,7 +31,7 @@ const list = ref([
 //   getList()
 // })
 
-useAutoScroll('.city-signs > main', '.city-signs .list', 100)
+useAutoScroll('.city-signs > main', '.city-signs .list', 50)
 </script>
 
 <template>
