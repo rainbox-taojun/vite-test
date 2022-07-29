@@ -6,7 +6,7 @@ import { useAMap } from '@/composables'
 let satellite = null // 卫星图图层
 let heatmap = null
 // 是否开启热力图
-const isHeatmap = ref(true)
+const isHeatmap = ref(false)
 const keyword = ref('疫情')
 
 watch(() => keyword.value, () => {
@@ -20,8 +20,7 @@ const { map } = useAMap({
   container: 'map-container',
   center: [120.699279, 27.993849],
   zoom: 12,
-  pitch: 45,
-  mapStyle: 'amap://styles/darkblue', // amap://styles/76655daf251d3a84065af27fa04be6a8
+  mapStyle: 'amap://styles/76655daf251d3a84065af27fa04be6a8', // amap://styles/76655daf251d3a84065af27fa04be6a8
   callback: () => {
     satellite = new AMap.TileLayer.Satellite()
     map.value.plugin(["AMap.HeatMap"], function () {
@@ -81,7 +80,7 @@ const getHeatmapData = async () => {
 
     <Keyword v-model="keyword" />
 
-    <header :class="isHeatmap ? 'heatmap' : ''"></header>
+
     <div class="shadow shadow-top"></div>
     <div class="shadow shadow-left"></div>
     <div class="shadow shadow-right"></div>
