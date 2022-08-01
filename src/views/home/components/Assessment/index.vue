@@ -85,7 +85,7 @@ useAutoScroll('.assessment > main', '.assessment .list', 50)
         >
           <h4 class="subtitle">{{ subitem.name }}</h4>
           <div class="percentage">
-            已完成<span class="value">{{ subitem.value }}</span>%
+            已完成<span class="value"> {{ subitem.value }} </span>%
           </div>
           <div class="bar-box">
             <div
@@ -179,8 +179,8 @@ useAutoScroll('.assessment > main', '.assessment .list', 50)
           color: #FFFFFF;
           line-height: 20px;
 
-          &.value {
-            color: #409EFF;
+          &>.value {
+            color: #10F3F7;
           }
         }
 
