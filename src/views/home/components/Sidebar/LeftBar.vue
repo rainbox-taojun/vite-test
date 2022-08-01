@@ -1,5 +1,4 @@
 <script setup name="LeftBar">
-import Angle from './components/Angle.vue'
 import { useAppStore } from '@/store/app'
 
 const appStore = useAppStore()
@@ -17,10 +16,8 @@ const isOpen = computed({
     class="left-bar"
     :class="{ 'is-open': isOpen }"
   >
-    <slot />
-
     <Angle />
-
+    <slot />
     <div
       class="toggle-btn"
       @click="isOpen = !isOpen"

@@ -26,19 +26,43 @@ const { title } = defineProps({
 <style lang="scss" scoped>
 .panel-v1 {
   height: 100%;
-  background: #101745;
   border-radius: 8px;
 
   .title {
     position: relative;
-    font-size: 20px;
-    color: #FFFFFF;
-    text-align: center;
-    line-height: 38px;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2500);
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     width: 100%;
-    height: 38px;
-    background: linear-gradient(90deg, rgba(3, 110, 255, 0) 0%, #0063C5 51%, rgba(44, 133, 189, 0) 100%);
+    height: 63px;
+    line-height: 26px;
+    font-family: PangMenZhengDao;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 26px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+
+    &::before {
+      content: ' ';
+      margin-right: 14px;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-image: url(@/assets/panel-v1-title-before-icon.png);
+      background-size: 100% 100%;
+    }
+
+    &::after {
+      content: ' ';
+      margin-left: 5px;
+      display: block;
+      width: 14px;
+      height: 14px;
+      background-image: url(@/assets/panel-v1-title-after-icon.png);
+      background-size: 100% 100%;
+    }
 
     .right-btn {
       position: absolute;
@@ -55,13 +79,13 @@ const { title } = defineProps({
     .bottom-light {
       position: absolute;
       margin: auto;
-      bottom: 0;
-      left: 0;
+      bottom: -35px;
       right: 0;
-      width: 123px;
-      height: 1px;
-      border: 1px solid;
-      border-image: linear-gradient(270deg, rgba(0, 63, 255, 0), rgba(147, 255, 253, 1), rgba(0, 63, 255, 0)) 2 2;
+      left: 24px;
+      top: 0px;
+      width: 300px;
+      height: 3px;
+      background: #88FFF5;
     }
   }
 

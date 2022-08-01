@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Angle: typeof import('./components/Angle.vue')['default']
     AreaSelect: typeof import('./components/AreaSelect.vue')['default']
     ChartRender: typeof import('./components/ChartRender.vue')['default']
     DynamicTable: typeof import('./components/DynamicTable/index.vue')['default']

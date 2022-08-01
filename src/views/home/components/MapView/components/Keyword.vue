@@ -14,7 +14,7 @@ const selected = computed({
     emit('update:modelValue', value)
   }
 }) // 当前选择
-const options = ref([]) // 下拉列表
+const options = ref([]) // 列表
 
 // 获取列表
 const getOptions = async () => {
@@ -32,6 +32,8 @@ onMounted(() => {
 
 <template>
   <div class="keyword">
+    <Angle />
+
     <ul class="nav">
       <li
         v-for="(item, index) in options"
@@ -50,11 +52,21 @@ onMounted(() => {
   position: absolute;
   bottom: 15px;
   left: 375px;
+  width: 720px;
+
+  :deep(.angle:nth-child(1)),
+  :deep(.angle:nth-child(3)) {
+    display: none;
+  }
 
   .nav {
     list-style-type: none;
+    padding: 0 40px;
     display: flex;
-    height: 36px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: auto;
     z-index: 101;
 
     .nav-item {
@@ -127,6 +139,12 @@ onMounted(() => {
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 1880px) {
+  .keyword {
+    width: 450px;
   }
 }
 </style>

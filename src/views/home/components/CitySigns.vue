@@ -58,7 +58,6 @@ useAutoScroll('.city-signs > main', '.city-signs .list', 50)
           {{ item.name }}
         </div>
         <div class="value">{{ item.value }}</div>
-        <div class="tag">{{ item.tag }}</div>
       </li>
     </ul>
   </PanelV1>
@@ -75,18 +74,19 @@ useAutoScroll('.city-signs > main', '.city-signs .list', 50)
 
     .list-item {
       margin-bottom: 12px;
-      padding: 11px 10px;
+      padding: 0;
       display: grid;
-      grid-template-columns: 45px auto;
-      grid-template-rows: 19px 24px 20px;
+      grid-template-columns: 52px auto;
+      grid-template-rows: 19px 22px 8px;
       grid-template-areas:
         'icon name'
         'icon value'
-        'icon tag';
-      column-gap: 14px;
+        'icon .';
+      column-gap: 10px;
+      font-family: MicrosoftYaHei;
+      row-gap: 2px;
       width: calc(50% - 6px);
-      height: 83px;
-      background: #082864;
+      height: 52px;
 
       &:nth-child(even) {
         margin-left: 12px;
@@ -94,17 +94,17 @@ useAutoScroll('.city-signs > main', '.city-signs .list', 50)
 
       .icon {
         grid-area: icon;
-        background-size: contain;
+        background-size: 155% auto;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: center top;
       }
 
       .name {
         grid-area: name;
-        height: 19px;
+        height: 17px;
         font-size: 14px;
         color: #FFFFFF;
-        line-height: 19px;
+        line-height: 17px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

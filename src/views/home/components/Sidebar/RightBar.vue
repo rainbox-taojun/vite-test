@@ -1,5 +1,4 @@
 <script setup name="RightBar">
-import Angle from './components/Angle.vue'
 import { useAppStore } from '@/store/app'
 
 const appStore = useAppStore()
@@ -18,15 +17,13 @@ const isOpen = computed({
     :class="{ 'is-open': isOpen }"
   >
     <section class="center">
-      <slot name="center" />
-
       <Angle />
+      <slot name="center" />
     </section>
 
     <section class="right">
-      <slot name="right" />
-
       <Angle />
+      <slot name="right" />
     </section>
 
     <div
