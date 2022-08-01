@@ -139,11 +139,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <PanelV2 class="economic-ecology">
-    <template v-slot:title>
-      <div class="title-img"></div>
-    </template>
-
+  <PanelV1
+    title="经济生态"
+    class="economic-ecology"
+  >
     <div class="content-wrap">
       <ul class="list">
         <li
@@ -160,7 +159,7 @@ onMounted(() => {
         id="economic-chart"
       />
     </div>
-  </PanelV2>
+  </PanelV1>
 </template>
 
 <style lang="scss" scoped>

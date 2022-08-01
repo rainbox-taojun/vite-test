@@ -139,11 +139,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <PanelV2 class="law-info">
-    <template v-slot:title>
-      <div class="title-img"></div>
-    </template>
-
+  <PanelV1
+    title="平安法治"
+    class="law-info"
+  >
     <div class="content-wrap">
       <ul class="list">
         <li
@@ -160,7 +159,7 @@ onMounted(() => {
         id="law-info-chart"
       />
     </div>
-  </PanelV2>
+  </PanelV1>
 </template>
 
 <style lang="scss" scoped>

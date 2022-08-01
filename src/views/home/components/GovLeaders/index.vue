@@ -37,14 +37,10 @@ onMounted(async () => {
 </script>
 
 <template>
-  <PanelV2 class="gov-leaders">
-    <template v-slot:title>
-      <div
-        class="title-img"
-        @click="dialogVisible = true"
-      />
-    </template>
-
+  <PanelV1
+    title="党建统领"
+    class="gov-leaders"
+  >
     <div class="content-wrap">
       <div
         v-for="item in eduData"
@@ -71,7 +67,7 @@ onMounted(async () => {
         </ul>
       </div>
     </div>
-  </PanelV2>
+  </PanelV1>
 
   <GovLeadersPop v-model="dialogVisible" />
 </template>
