@@ -1,7 +1,9 @@
 <script setup name="Home">
 import MapView from './components/MapView/index.vue'
+
 import LeftBar from './components/Sidebar/LeftBar.vue'
 import RightBar from './components/Sidebar/RightBar.vue'
+
 import CitySigns from './components/CitySigns.vue'
 import Assessment from './components/Assessment/index.vue'
 import ScenarioApp from './components/ScenarioApp.vue'
@@ -18,26 +20,33 @@ import PublicService from './components/PublicService.vue'
   <div class="home bigscreen">
     <MapView class="map" />
 
-    <LeftBar />
+    <LeftBar>
+      <aside class="left">
+        <GovLeaders />
+        <EconomicEcology />
+        <LawInfo />
+        <PublicService />
 
-    <RightBar />
-    <!-- <aside class="left">
-      <CitySigns />
-      <Assessment />
-      <ScenarioApp />
-    </aside>
-    <section class="center">
-      <GovLeaders />
-      <EconomicEcology />
-      <LawInfo />
-      <PublicService />
-      
-    </section>
-    <aside class="right">
-      <MissionStatus />
-      <EventHot />
-      <SmartElement />
-    </aside> -->
+      </aside>
+    </LeftBar>
+
+    <RightBar>
+      <template v-slot:center>
+        <section class="center">
+          <CitySigns />
+          <Assessment />
+          <ScenarioApp />
+        </section>
+      </template>
+
+      <template v-slot:right>
+        <aside class="right">
+          <MissionStatus />
+          <EventHot />
+          <SmartElement />
+        </aside>
+      </template>
+    </RightBar>
   </div>
 </template>
 
@@ -53,25 +62,23 @@ import PublicService from './components/PublicService.vue'
     height: 100%;
   }
 
-  // &>.left,
-  // &>.right {
-  //   display: grid;
-  //   grid-template-columns: 100%;
-  //   grid-template-rows: repeat(3, calc(33.3% - 40px / 3));
-  //   grid-gap: 20px;
-  //   height: 100%;
-  // }
+  .left,
+  .right {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, calc(33.3% - 40px / 3));
+    grid-gap: 20px;
+    height: 100%;
+  }
 
-  // &>.center {
-  //   display: grid;
-  //   grid-template-columns: repeat(2, calc(50% - 10px));
-  //   ;
-  //   grid-template-rows: calc(30% - 40px / 3) calc(30% - 40px / 3) calc(40% - 40px / 3);
-  //   grid-gap: 20px;
-  //   height: 100%;
-  //   overflow: hidden;
-
-
-  // }
+  .center {
+    display: grid;
+    grid-template-columns: 100%;
+    ;
+    grid-template-rows: calc(30% - 40px / 3) calc(30% - 40px / 3) calc(40% - 40px / 3);
+    grid-gap: 20px;
+    height: 100%;
+    overflow: hidden;
+  }
 }
 </style>

@@ -2,6 +2,11 @@
 import { getHeatmap } from '@/api'
 import Keyword from './components/Keyword.vue'
 import { useAMap } from '@/composables'
+import { useAppStore } from '@/store/app'
+
+const appStore = useAppStore()
+
+const leftbarIsOpen = computed(() => appStore.leftBar)
 
 let satellite = null // 卫星图图层
 let heatmap = null
@@ -74,7 +79,7 @@ const getHeatmapData = async () => {
 
     <div
       class="map-type_switch"
-      :class="isHeatmap ? 'heatmap' : ''"
+      :class="{ 'heatmap': isHeatmap, 'is-open': leftbarIsOpen }"
       @click="toggleMapType"
     />
 
@@ -98,18 +103,37 @@ const getHeatmapData = async () => {
 
   .map-type_switch {
     position: absolute;
-    bottom: 11px;
-    right: 11px;
+    top: 11px;
+    left: 11px;
     width: 142px;
     height: 93px;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100% auto;
+    background-position: center;
     cursor: pointer;
     z-index: 100;
-    background-image: url(../../../../assets/map-grid_btn.png);
+    background-image: url(../../../../assets/map-grid-btn.png);
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      background-image: url(../../../../assets/map-grid-btn_active.png);
+    }
 
     &.heatmap {
-      background-image: url(../../../../assets/map-heatmap_btn.png);
+      background-image: url(../../../../assets/map-heatmap-btn.png);
+
+      &:hover {
+        background-image: url(../../../../assets/map-heatmap-btn_active.png);
+      }
+    }
+
+    &.is-open {
+      transform: translateX(360px);
+
+      &:hover {
+        transform: translateX(360px) scale(1.1);
+      }
     }
   }
 

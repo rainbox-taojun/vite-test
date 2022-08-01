@@ -8,7 +8,6 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AreaSelect: typeof import('./components/AreaSelect.vue')['default']
-    Asidebar: typeof import('./components/Asidebar.vue')['default']
     ChartRender: typeof import('./components/ChartRender.vue')['default']
     DynamicTable: typeof import('./components/DynamicTable/index.vue')['default']
     ElCol: typeof import('element-plus/es')['ElCol']

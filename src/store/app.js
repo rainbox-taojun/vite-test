@@ -9,7 +9,6 @@ export const useAppStore = defineStore('app', {
   actions: {
     toggleSidebar (position) {
       this[position] = !this[position]
-      console.log(this[position])
       Cookies.set(position, this[position] ? 1 : 0)
     }
   }
