@@ -11,6 +11,8 @@ export const useAutoScroll = (container, content, speed = 100) => {
     child.style.marginBottom = 0
     const newChild = child.cloneNode(true)
     parent.appendChild(newChild)
+    const newChild2 = child.cloneNode(true)
+    parent.appendChild(newChild2)
   }
 
   const startScroll = (startTop = 0) => {
@@ -18,7 +20,7 @@ export const useAutoScroll = (container, content, speed = 100) => {
 
     timer.value = setInterval(() => {
       // 2:可能出现的精度丢失
-      if (parent.scrollTop + 2 >= (child.scrollHeight * 2 - parent.offsetHeight)) {
+      if (parent.scrollTop >= (child.scrollHeight * 2 - parent.offsetHeight)) {
         const newChild = child.cloneNode(true)
         parent.appendChild(newChild)
         child.remove()

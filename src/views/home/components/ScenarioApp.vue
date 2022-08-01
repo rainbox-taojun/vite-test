@@ -12,7 +12,7 @@ const list = computed(() => {
   switch (currentTab.value) {
     case 'leader':
       return [
-        { label: '1. 政务督查“掌上钉”', link: 'https://dingdingducha.wenzhou.gov.cn/dbyw.html#/daping' }
+        { label: '政务督查“掌上钉”', link: 'https://dingdingducha.wenzhou.gov.cn/dbyw.html#/daping' }
       ]
     case 'economic':
       return [
@@ -63,7 +63,6 @@ const jumpTo = (link) => {
             >
               {{ item.label }}
             </li>
-            <el-divider direction="vertical" />
           </template>
 
         </ul>
@@ -120,6 +119,7 @@ const jumpTo = (link) => {
           opacity: .7;
           box-sizing: border-box;
           cursor: pointer;
+          width: 30px;
           // overflow: hidden;
           // text-overflow: ellipsis;
           // white-space: nowrap;
@@ -148,14 +148,14 @@ const jumpTo = (link) => {
       overflow-x: hidden;
 
       .list-item {
-        margin-left: 18px;
-        margin-right: 0;
-        margin-bottom: 9px;
+        margin: 20px 0 9px 18px;
         padding: 13px 20px;
         width: calc(50% - 4.5px - 18px);
-        height: 94px;
+        height: 200px;
         background-image: url(@/assets/scenario-app-card_bg.png);
-        background-size: 100% 100%;
+        background-size: contain;
+        background-position: top;
+        background-repeat: no-repeat;
         cursor: pointer;
 
         &:nth-child(even) {
@@ -164,7 +164,7 @@ const jumpTo = (link) => {
         }
 
         &>h2 {
-          margin: 0;
+          margin: 135px 0 0 0;
           font-size: 16px;
           color: #FFFFFF;
           line-height: 20px;
