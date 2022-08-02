@@ -46,7 +46,7 @@ const dialogVisible = ref(false)
   .list {
     list-style-type: none;
     margin: 0;
-    padding: 10px 13px;
+    padding: 0px 13px;
     display: flex;
     flex-wrap: wrap;
     width: 100%;

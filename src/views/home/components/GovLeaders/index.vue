@@ -11,7 +11,7 @@ const eduData = ref([
   { name: '党员平均年龄', value: '41.79', unit: '岁' },
 ])
 const postionData = ref({})
-const colorList = ['rgba(32,159,237,1)', 'rgba(255,159,32,1)', 'rgba(159,255,237,1)', 'rgba(159,255,32,1)']
+const colorList = ['rgba(29, 180, 255, 0.9)', 'rgba(83, 45, 255, 0.9)', 'rgba(255, 194, 0, 0.9)', 'rgba(83, 221, 128, 0.9)']
 
 const getData = async () => {
   const res = await getGovLeaders()
@@ -41,31 +41,58 @@ onMounted(async () => {
     title="党建统领"
     class="gov-leaders"
   >
+    <template v-slot:title-right>
+      <div class="link">更多></div>
+    </template>
+
     <div class="content-wrap">
-      <div
-        v-for="item in eduData"
-        class="line"
-      >
-        <div class="name">{{ item.name }}</div>
-        <div class="value">{{ item.value }} {{ item.unit }}</div>
-      </div>
+      <CardV1 class="card-1">
+        <div class="left">
+          <h3 class="title">{{ eduData[0].name }}</h3>
+          <div class="icon"></div>
+          <div class="value">
+            {{ eduData[0].value }}
+            <span>{{ eduData[0].unit }}</span>
+          </div>
+        </div>
 
-      <div class="chart-wrap">
-        <div
-          class="chart-box"
-          id="gov-leaders-chart"
-        />
-
-        <ul class="legend-list">
-          <li v-for="(item, index) in postionData">
-            <span
-              class="circle"
-              :style="{ backgroundColor: colorList[index] }"
+        <div class="right">
+          <div class="chart-wrap">
+            <div
+              class="chart-box"
+              id="gov-leaders-chart"
             />
-            <span>{{ item.name }}</span>
-          </li>
-        </ul>
-      </div>
+
+            <ul class="legend-list">
+              <li v-for="(item, index) in postionData">
+                <span
+                  class="circle"
+                  :style="{ backgroundColor: colorList[index] }"
+                />
+                <span>{{ item.name }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </CardV1>
+
+      <CardV1 class="card-2">
+        <div class="left">
+          <h3 class="title">{{ eduData[1].name }}</h3>
+          <div class="icon"></div>
+          <div class="value">
+            {{ eduData[1].value }}
+          </div>
+        </div>
+
+        <div class="right">
+          <h3 class="title">{{ eduData[2].name }}</h3>
+          <div class="icon"></div>
+          <div class="value">
+            {{ eduData[2].value }}
+          </div>
+        </div>
+      </CardV1>
     </div>
   </PanelV1>
 
@@ -74,37 +101,137 @@ onMounted(async () => {
 
 <style lang="scss" scoped>
 .gov-leaders {
-  .title-img {
-    width: 284px;
-    height: 100%;
-    background-image: url(@/assets/gov-leaders-title_bg.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    cursor: pointer;
+  :deep(.card-1) {
+    margin-bottom: 8px;
+    padding: 14px;
+    display: flex;
+    height: 11.5vh;
+
+    .left {
+      padding-right: 17px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 35%;
+      height: 100%;
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+
+      .title {
+        margin-top: 7px;
+        margin-bottom: 9px;
+        height: 17px;
+        font-family: PangMenZhengDao;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0px;
+        color: #10F3F7;
+      }
+
+      .icon {
+        margin-bottom: 15px;
+        width: 42px;
+        height: 31px;
+        background-image: url(@/assets/icon-people.png);
+        background-size: 100% 100%;
+      }
+
+      .value {
+        height: 22px;
+        font-family: PangMenZhengDao;
+        font-size: 18px;
+        font-weight: normal;
+        line-height: 22px;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+
+        &>span {
+          color: rgba(255, 255, 255, 0.7);
+        }
+      }
+    }
+
+    .right {
+      width: 65%;
+      height: 100%;
+    }
+  }
+
+  :deep(.card-2) {
+    padding: 10px 0;
+    display: flex;
+    height: 6.5vh;
+
+    .left {
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+
+      .icon {
+        background-image: url(@/assets/icon-tg.png);
+      }
+    }
+
+    .right {
+      .icon {
+        background-image: url(@/assets/icon-cake.png);
+      }
+    }
+
+    .left,
+    .right {
+      display: grid;
+      grid-template-columns: 54px auto;
+      grid-template-rows: 14px 17px;
+      grid-gap: 8px 6px;
+      grid-template-areas:
+        'icon name'
+        'icon value';
+      align-content: center;
+      width: 50%;
+      height: 100%;
+
+
+      .title {
+        grid-area: name;
+        margin: 0;
+        height: 14px;
+        font-family: MicrosoftYaHei;
+        font-size: 12px;
+        line-height: 14px;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+      }
+
+      .icon {
+        grid-area: icon;
+        margin-bottom: 15px;
+        width: 100%;
+        height: 100%;
+        background-size: auto 100%;
+        background-position: right;
+        background-repeat: no-repeat;
+      }
+
+      .value {
+        grid-area: value;
+        height: 22px;
+        height: 17px;
+        font-family: PangMenZhengDao;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+      }
+    }
   }
 
   .content-wrap {
-    padding: 20px 50px;
-
-    .line {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 16px;
-      color: #FFFFFF;
-      line-height: 24px;
-
-      .value {
-        color: #00FFE9;
-      }
-    }
+    padding: 0px 16px 0 4px;
 
     .chart-wrap {
       margin-bottom: 11px;
       display: flex;
       width: 100%;
-      height: 115px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3000);
+      height: 100%;
 
       .chart-box {
         width: 50%;

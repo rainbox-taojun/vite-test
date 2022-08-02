@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Angle: typeof import('./components/Angle.vue')['default']
     AreaSelect: typeof import('./components/AreaSelect.vue')['default']
+    CardV1: typeof import('./components/CardV1.vue')['default']
     ChartRender: typeof import('./components/ChartRender.vue')['default']
     DynamicTable: typeof import('./components/DynamicTable/index.vue')['default']
     ElCol: typeof import('element-plus/es')['ElCol']

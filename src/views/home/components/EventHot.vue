@@ -59,7 +59,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .event-hot {
   .box {
-    padding: 20px;
+    padding: 0 20px;
     width: 100%;
     height: 100%;
   }

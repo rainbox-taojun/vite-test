@@ -62,7 +62,14 @@ import PublicService from './components/PublicService.vue'
     height: 100%;
   }
 
-  .left,
+  .left {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 28% 28% 18% 26%;
+    grid-gap: 0px;
+    height: 100%;
+  }
+
   .right {
     display: grid;
     grid-template-columns: 100%;

@@ -72,6 +72,7 @@ const { title } = defineProps({
       margin: auto;
       height: 16px;
       font-size: 12px;
+      font-family: MicrosoftYaHei;
       color: #32C5FF;
       line-height: 16px;
     }
@@ -90,7 +91,7 @@ const { title } = defineProps({
   }
 
   &>main {
-    height: calc(100% - 38px);
+    height: calc(100% - 63px);
     overflow-y: auto;
     overflow-x: hidden;
   }

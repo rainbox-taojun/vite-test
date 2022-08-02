@@ -143,6 +143,10 @@ onMounted(() => {
     title="经济生态"
     class="economic-ecology"
   >
+    <template v-slot:title-right>
+      <div class="link">全部></div>
+    </template>
+
     <div class="content-wrap">
       <ul class="list">
         <li

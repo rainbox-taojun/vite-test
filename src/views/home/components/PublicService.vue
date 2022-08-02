@@ -17,9 +17,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <PanelV2 class="public-service">
-    <template v-slot:title>
-      <div class="title-img"></div>
+  <PanelV1
+    title="公共服务"
+    class="public-service"
+  >
+    <template v-slot:title-right>
+      <div class="link">全部></div>
     </template>
 
     <div class="content-wrap">
@@ -33,7 +36,7 @@ onMounted(() => {
         </li>
       </ul>
     </div>
-  </PanelV2>
+  </PanelV1>
 </template>
 
 <style lang="scss" scoped>
