@@ -65,7 +65,7 @@ import PublicService from './components/PublicService.vue'
   .left {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 28% 28% 18% 26%;
+    grid-template-rows: 28% 28% 20% 24%;
     grid-gap: 0px;
     height: 100%;
   }
