@@ -103,9 +103,10 @@ onMounted(async () => {
 .gov-leaders {
   :deep(.card-1) {
     margin-bottom: 8px;
-    padding: 14px;
+    padding: 0.7vh 14px;
     display: flex;
-    height: 11.5vh;
+    height: calc(70% - 8px);
+    box-sizing: border-box;
 
     .left {
       padding-right: 17px;
@@ -118,7 +119,7 @@ onMounted(async () => {
       border-right: 1px solid rgba(255, 255, 255, 0.2);
 
       .title {
-        margin-top: 7px;
+        margin-top: 0px;
         margin-bottom: 9px;
         height: 17px;
         font-family: PangMenZhengDao;
@@ -129,7 +130,7 @@ onMounted(async () => {
       }
 
       .icon {
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         width: 42px;
         height: 31px;
         background-image: url(@/assets/icon-people.png);
@@ -158,9 +159,10 @@ onMounted(async () => {
   }
 
   :deep(.card-2) {
-    padding: 10px 0;
+    padding: 0.7vh 0;
     display: flex;
-    height: 6.5vh;
+    height: 30%;
+    box-sizing: border-box;
 
     .left {
       border-right: 1px solid rgba(255, 255, 255, 0.2);
@@ -226,9 +228,9 @@ onMounted(async () => {
 
   .content-wrap {
     padding: 0px 16px 0 4px;
+    height: 100%;
 
     .chart-wrap {
-      margin-bottom: 11px;
       display: flex;
       width: 100%;
       height: 100%;

@@ -87,17 +87,23 @@ const options = computed(() => {
       {
         data: chartData.value.y,
         type: 'line',
-        smooth: true,
-        symbol: 'none',
+        symbol: 'circle',
+        symbolSize: 8,
+        itemStyle: {
+          color: '#fff', //改变折线点的颜色
+          borderColor: '#CEFFAF',
+          shadowColor: 'rgba(255, 255, 255, 0.5)',
+          shadowBlur: 3
+        },
         lineStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
             {
               offset: 0,
-              color: 'rgba(255, 217, 0, 1)'
+              color: 'rgba(64, 255, 126, 1)'
             },
             {
               offset: 1,
-              color: 'rgba(255, 219, 0, 1)'
+              color: 'rgba(236, 255, 89, 1)'
             }
           ]),
           shadowBlur: 10
@@ -107,11 +113,11 @@ const options = computed(() => {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
             {
               offset: 0,
-              color: "rgba(255, 219, 90, 0.5500)"
+              color: "rgba(129, 255, 90, 0.55)"
             },
             {
               offset: 1,
-              color: "rgba(255, 219, 90, 0)"
+              color: "rgba(51, 255, 23, 0)"
             }
           ], false),
           shadowColor: 'rgba(25,163,223, 0.5)', //阴影颜色
@@ -144,63 +150,128 @@ onMounted(() => {
     class="economic-ecology"
   >
     <template v-slot:title-right>
-      <div class="link">全部></div>
+      <div class="link">更多></div>
     </template>
 
     <div class="content-wrap">
-      <ul class="list">
-        <li
-          v-for="(item, index) in list"
-          class="list-item"
-        >
-          <div class="name">{{ item.name }}</div>
-          <div class="value">{{ item.value }}</div>
-        </li>
-      </ul>
-
-      <div
-        class="chart-box"
-        id="economic-chart"
-      />
+      <CardV1 class="card-1">
+        <div class="number number-1">
+          <div class="icon"></div>
+          <div class="value">28839</div>
+          <div class="name">开办企业税务登记累计数量</div>
+        </div>
+        <div class="number number-2">
+          <div class="icon"></div>
+          <div class="value">31383</div>
+          <div class="name">开办个体税务登记累计数量</div>
+        </div>
+        <div class="bar">
+          <div>全年登记数量统计</div>
+          <div>单位：户</div>
+        </div>
+        <div
+          class="chart-box"
+          id="economic-chart"
+        />
+      </CardV1>
     </div>
   </PanelV1>
 </template>
 
 <style lang="scss" scoped>
 .economic-ecology {
-  .title-img {
-    width: 284px;
-    height: 100%;
-    background-image: url(../../../assets/economic-ecology-title_bg.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-
   .content-wrap {
-    padding: 20px 60px;
+    padding: 0px 16px 0 4px;
+    height: 100%;
 
-    .list {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
+    .card-1 {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 35% 15% 50%;
+      height: 100%;
+    }
 
-      .list-item {
-        margin-bottom: 14px;
+    .number {
+      display: grid;
+      grid-template-columns: 40px auto;
+      grid-template-rows: 22px 28px;
+      gap: 2px 12px;
+      justify-content: center;
+      align-content: center;
+
+      .icon {
+        grid-row-start: 1;
+        grid-row-end: 3;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        height: 24px;
-        color: #fff;
+        width: 40px;
+        height: 100%;
+        background-size: 100% auto;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .value {
+        font-family: PangMenZhengDao;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: 0px;
+      }
+
+      .name {
+        width: 72px;
+        font-family: MicrosoftYaHei;
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 14px;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+      }
+
+      &.number-1 {
+        .icon {
+          background-image: url(@/assets/icon-company.png);
+        }
 
         .value {
-          color: rgba(255, 217, 0, 1);
+          color: #10F3F7;
+        }
+      }
+
+      &.number-2 {
+        .icon {
+          background-image: url(@/assets/icon-hospital.png);
+        }
+
+        .value {
+          color: #00FF8F;
         }
       }
     }
 
+    .bar {
+      padding: 0 10px;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      font-size: 14px;
+      background: linear-gradient(90deg, #0078FF 0%, #0078FF 0%, rgba(0, 26, 58, 0.00) 100%, rgba(0, 26, 58, 0.00) 100%);
+
+      div:last-child {
+        font-size: 12px;
+        letter-spacing: -0.6px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+
     .chart-box {
+      grid-column-start: 1;
+      grid-column-end: 3;
       width: 100%;
-      height: 135px;
+      height: 100%;
     }
   }
 }
