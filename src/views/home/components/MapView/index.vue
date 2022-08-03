@@ -1,12 +1,8 @@
 <script setup name="MapView">
 import { getHeatmap } from '@/api'
 import Keyword from './components/Keyword.vue'
+import MapTypeSwitch from './components/MapTypeSwitch.vue'
 import { useAMap } from '@/composables'
-import { useAppStore } from '@/store/app'
-
-const appStore = useAppStore()
-
-const leftbarIsOpen = computed(() => appStore.leftBar)
 
 let satellite = null // 卫星图图层
 let heatmap = null
@@ -25,6 +21,7 @@ const { map } = useAMap({
   container: 'map-container',
   center: [120.699279, 27.993849],
   zoom: 12,
+  terrain: true, // 3D建筑
   mapStyle: 'amap://styles/76655daf251d3a84065af27fa04be6a8', // amap://styles/76655daf251d3a84065af27fa04be6a8
   callback: () => {
     satellite = new AMap.TileLayer.Satellite()
@@ -77,14 +74,9 @@ const getHeatmapData = async () => {
       id="map-container"
     />
 
-    <div
-      class="map-type_switch"
-      :class="{ 'heatmap': isHeatmap, 'is-open': leftbarIsOpen }"
-      @click="toggleMapType"
-    />
+    <MapTypeSwitch @toggle-map-type="toggleMapType" />
 
     <Keyword v-model="keyword" />
-
 
     <div class="shadow shadow-top"></div>
     <div class="shadow shadow-left"></div>
@@ -99,42 +91,6 @@ const getHeatmapData = async () => {
   .map-container {
     width: 100%;
     height: 100%;
-  }
-
-  .map-type_switch {
-    position: absolute;
-    top: 11px;
-    left: 11px;
-    width: 142px;
-    height: 93px;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position: center;
-    cursor: pointer;
-    z-index: 100;
-    background-image: url(../../../../assets/map-grid-btn.png);
-    transition: transform 0.5s ease;
-
-    &:hover {
-      transform: scale(1.1);
-      background-image: url(../../../../assets/map-grid-btn_active.png);
-    }
-
-    &.heatmap {
-      background-image: url(../../../../assets/map-heatmap-btn.png);
-
-      &:hover {
-        background-image: url(../../../../assets/map-heatmap-btn_active.png);
-      }
-    }
-
-    &.is-open {
-      transform: translateX(360px);
-
-      &:hover {
-        transform: translateX(360px) scale(1.1);
-      }
-    }
   }
 
   header {
