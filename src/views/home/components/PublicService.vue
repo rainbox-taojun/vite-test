@@ -75,9 +75,7 @@ const options = computed(() => {
         type: "radar",
         symbol: "none",
         itemStyle: {
-          normal: {
-            areaStyle: { type: "default" }
-          }
+          areaStyle: { type: "default" }
         },
         data: [
           {
@@ -86,11 +84,9 @@ const options = computed(() => {
             value: [70, 42, 63, 84, 75, 34],
             areaStyle: { color: "rgba(255, 198, 0, 0.3)" },
             itemStyle: {
-              normal: {
-                borderWidth: 1,
-                color: "rgba(255, 218, 90, 1)",
-                borderColor: "rgba(255, 218, 90, 1)"
-              }
+              borderWidth: 1,
+              color: "rgba(255, 218, 90, 1)",
+              borderColor: "rgba(255, 218, 90, 1)"
             },
             lineStyle: {
               color: "rgba(255, 218, 90, 1)",
@@ -138,7 +134,7 @@ onMounted(() => {
             居家养老上门服务工单累计数量
           </div>
           <div class="value">
-            161 件
+            <CountTo :endVal="161" /> 件
           </div>
         </CardV1>
 
@@ -147,7 +143,7 @@ onMounted(() => {
             市区出租车（巡游车）在途车辆
           </div>
           <div class="value">
-            161 辆
+            <CountTo :endVal="161" /> 辆
           </div>
         </CardV1>
       </div>

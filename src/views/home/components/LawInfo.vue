@@ -33,7 +33,9 @@ onMounted(() => {
           class="list-item"
         >
           <div class="name">{{ item.name }}</div>
-          <div class="value">{{ item.value }} {{ index === 0 ? '人' : '次' }}</div>
+          <div class="value">
+            <CountTo :endVal="item.value" /> {{ index === 0 ? '人' : '次' }}
+          </div>
         </li>
       </ul>
     </div>

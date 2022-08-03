@@ -10,14 +10,14 @@ const eduData = ref([
   { name: '党员总数', value: '51454', unit: '人' },
   { name: '党员平均年龄', value: '41.79', unit: '岁' },
 ])
-const postionData = ref({})
+const postionData = ref([])
 const colorList = ['rgba(29, 180, 255, 0.9)', 'rgba(83, 45, 255, 0.9)', 'rgba(255, 194, 0, 0.9)', 'rgba(83, 221, 128, 0.9)']
 
 const getData = async () => {
   const res = await getGovLeaders()
   if (res.code === 200) {
     // eduData.value = res.data.chart4
-    postionData.value = res.data.chart2.map(item => {
+    postionData.value = res.data.chart2?.map(item => {
       return {
         ...item,
         value: Number.parseFloat(item.value)
@@ -51,7 +51,7 @@ onMounted(async () => {
           <h3 class="title">{{ eduData[0].name }}</h3>
           <div class="icon"></div>
           <div class="value">
-            {{ eduData[0].value }}
+            <CountTo :endVal="eduData[0].value" />
             <span>{{ eduData[0].unit }}</span>
           </div>
         </div>
@@ -81,7 +81,7 @@ onMounted(async () => {
           <h3 class="title">{{ eduData[1].name }}</h3>
           <div class="icon"></div>
           <div class="value">
-            {{ eduData[1].value }}
+            <CountTo :endVal="eduData[1].value" />
           </div>
         </div>
 
@@ -89,7 +89,7 @@ onMounted(async () => {
           <h3 class="title">{{ eduData[2].name }}</h3>
           <div class="icon"></div>
           <div class="value">
-            {{ eduData[2].value }}
+            <CountTo :endVal="eduData[2].value" />
           </div>
         </div>
       </CardV1>
@@ -138,6 +138,7 @@ onMounted(async () => {
       }
 
       .value {
+        display: flex;
         height: 22px;
         font-family: PangMenZhengDao;
         font-size: 18px;
@@ -146,7 +147,7 @@ onMounted(async () => {
         letter-spacing: 0px;
         color: #FFFFFF;
 
-        &>span {
+        &>span:last-child {
           color: rgba(255, 255, 255, 0.7);
         }
       }

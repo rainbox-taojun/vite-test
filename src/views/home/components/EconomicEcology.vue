@@ -157,12 +157,16 @@ onMounted(() => {
       <CardV1 class="card-1">
         <div class="number number-1">
           <div class="icon"></div>
-          <div class="value">28839</div>
+          <div class="value">
+            <CountTo :endVal="28839" />
+          </div>
           <div class="name">开办企业税务登记累计数量</div>
         </div>
         <div class="number number-2">
           <div class="icon"></div>
-          <div class="value">31383</div>
+          <div class="value">
+            <CountTo :endVal="31383" />
+          </div>
           <div class="name">开办个体税务登记累计数量</div>
         </div>
         <div class="bar">
