@@ -2,7 +2,7 @@
  * @Author: 陶俊 
  * @Date: 2022-08-03 10:03:48 
  * @Last Modified by: 陶俊
- * @Last Modified time: 2022-08-03 12:29:49
+ * @Last Modified time: 2022-08-03 16:26:31
  */
 import { useEventListener } from './index'
 
@@ -34,7 +34,7 @@ export function useMapStandbyAnim (map, config = {
       if (currentRotation >= 360) {
         currentRotation = 0
       }
-      map.value.setRotation(currentRotation, false, config.speed)
+      map.value.setRotation(currentRotation, currentRotation == 0, config.speed)
     }, config.speed)
   }
 
