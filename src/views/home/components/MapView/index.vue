@@ -2,6 +2,7 @@
 import { getHeatmap } from '@/api'
 import Keyword from './components/Keyword.vue'
 import MapTypeSwitch from './components/MapTypeSwitch.vue'
+import MapShadow from './components/MapShadow.vue'
 import { useAMap } from '@/composables'
 
 let satellite = null // 卫星图图层
@@ -75,12 +76,8 @@ const getHeatmapData = async () => {
     />
 
     <MapTypeSwitch @toggle-map-type="toggleMapType" />
-
     <Keyword v-model="keyword" />
-
-    <div class="shadow shadow-top"></div>
-    <div class="shadow shadow-left"></div>
-    <div class="shadow shadow-right"></div>
+    <MapShadow />
   </div>
 </template>
 
@@ -109,32 +106,6 @@ const getHeatmapData = async () => {
     &.heatmap {
       background-image: url(../../../../assets/map-heatmap_bg.png);
     }
-  }
-
-  .shadow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    z-index: 99;
-  }
-
-  .shadow-top {
-    width: 100%;
-    height: 57px;
-    background: linear-gradient(180deg, rgba(0, 15, 44, 0.7) 0%, rgba(0, 15, 44, 0) 100%);
-  }
-
-  .shadow-left {
-    width: 56px;
-    background: linear-gradient(90deg, rgba(0, 15, 44, 0.7) 0%, rgba(0, 15, 44, 0) 100%);
-  }
-
-  .shadow-right {
-    left: unset;
-    right: 0;
-    width: 56px;
-    background: linear-gradient(-90deg, rgba(0, 15, 44, 0.7) 0%, rgba(0, 15, 44, 0) 100%);
   }
 }
 </style>
