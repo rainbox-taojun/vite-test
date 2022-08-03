@@ -3,7 +3,7 @@ import { getHeatmap } from '@/api'
 import Keyword from './components/Keyword.vue'
 import MapTypeSwitch from './components/MapTypeSwitch.vue'
 import MapShadow from './components/MapShadow.vue'
-import { useAMap } from '@/composables'
+import { useAMap, useMapStandbyAnim } from '@/composables'
 
 let satellite = null // 卫星图图层
 let heatmap = null
@@ -41,6 +41,12 @@ const { map } = useAMap({
     })
     map.value.addLayer(satellite);
   }
+})
+
+useMapStandbyAnim(map, {
+  pitch: 60,
+  speed: 250,
+  startTime: 10000
 })
 
 // 热力图和普通地图切换
@@ -88,24 +94,6 @@ const getHeatmapData = async () => {
   .map-container {
     width: 100%;
     height: 100%;
-  }
-
-  header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 73px;
-    background-size: contain;
-    background-position: 0%;
-    background-size: auto 100%;
-    background-repeat: no-repeat;
-    z-index: 100;
-    background-image: url(../../../../assets/map-event_bg.png);
-
-    &.heatmap {
-      background-image: url(../../../../assets/map-heatmap_bg.png);
-    }
   }
 }
 </style>
