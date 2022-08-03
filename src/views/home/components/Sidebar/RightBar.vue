@@ -40,12 +40,14 @@ const isOpen = computed({
   top: 0;
   display: flex;
   height: 100%;
+  perspective: 1000px;
+  z-index: 100;
 
   &.is-open {
 
     .center,
     .right {
-      transform: translateX(0);
+      transform: translateX(0) rotateY(0deg);
     }
   }
 
@@ -56,17 +58,18 @@ const isOpen = computed({
     height: 100%;
     background: rgba(0, 29, 57, 0.6);
     box-shadow: inset -1px 0px 3px 0px rgba(0, 84, 106, 0.5);
-    transition: transform 0.5s ease;
+    transition: transform 0.7s ease;
     z-index: 100;
   }
 
   .center {
     margin-right: 10px;
-    transform: translateX(730px);
+    transform: translateX(730px) rotateY(90deg);
   }
 
   .right {
-    transform: translateX(360px);
+    transform: translateX(360px) rotateY(-90deg);
+    transition: transform 0.7s ease-out;
   }
 
   .toggle-btn {
@@ -80,7 +83,7 @@ const isOpen = computed({
     background-image: url(@/assets/sidebar-btn_bg.png);
     background-size: 100% 100%;
     transform: translateX(715px);
-    transition: transform 0.5s ease;
+    transition: transform 0.7s ease;
     cursor: pointer;
     z-index: 100;
   }

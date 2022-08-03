@@ -55,12 +55,10 @@ const toggleMapType = () => {
   if (isHeatmap.value) {
     satellite.show()// 热力图在卫星地图模式下显示
     heatmap.show()
-    map.value.setPitch(45)
     getHeatmapData()
   } else {
     satellite.hide()
     heatmap.hide()
-    map.value.setPitch(1)
   }
 }
 

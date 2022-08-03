@@ -16,8 +16,11 @@ const isOpen = computed({
     class="left-bar"
     :class="{ 'is-open': isOpen }"
   >
-    <Angle />
-    <slot />
+    <section class="panel">
+      <Angle />
+      <slot />
+    </section>
+
     <div
       class="toggle-btn"
       @click="isOpen = !isOpen"
@@ -32,14 +35,16 @@ const isOpen = computed({
   top: 0;
   width: 360px;
   height: 100%;
-  background: rgba(0, 29, 57, 0.6);
-  box-shadow: inset -1px 0px 3px 0px rgba(0, 84, 106, 0.5);
-  transform: translateX(-360px);
-  transition: transform 0.5s ease;
+  perspective: 1000px;
   z-index: 100;
 
-  &.is-open {
-    transform: translateX(0);
+  .panel {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 29, 57, 0.6);
+    box-shadow: inset -1px 0px 3px 0px rgba(0, 84, 106, 0.5);
+    transform: translateX(-360px) rotateY(90deg);
+    transition: transform 0.5s ease;
   }
 
   .toggle-btn {
@@ -52,11 +57,16 @@ const isOpen = computed({
     height: 101px;
     background-image: url(@/assets/sidebar-btn_bg.png);
     background-size: 100% 100%;
-    transform: translateX(15px) scaleX(-1);
+    transform: translateX(-345px) scaleX(-1);
+    transition: transform 0.5s ease;
     cursor: pointer;
   }
 
   &.is-open {
+    .panel {
+      transform: translateX(0);
+    }
+
     .toggle-btn {
       background-image: url(@/assets/sidebar-btn_bg.png);
       transform: translateX(0px);
