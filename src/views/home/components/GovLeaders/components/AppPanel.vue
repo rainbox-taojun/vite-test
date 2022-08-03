@@ -35,10 +35,8 @@ const options = computed(() => {
         radius: ['60%', '90%'],
         center: ['20%', '50%'],
         itemStyle: {
-          normal: {
-            color: function (params) {
-              return colorList[params.dataIndex];
-            },
+          color: function (params) {
+            return colorList[params.dataIndex];
           },
         },
         label: {

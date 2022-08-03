@@ -78,11 +78,9 @@ const options = computed(() => {
               show: false
             },
             labelLine: {
-              normal: {
-                smooth: true,
-                lineStyle: {
-                  width: 0
-                }
+              smooth: true,
+              lineStyle: {
+                width: 0
               }
             },
             hoverAnimation: false,
@@ -102,15 +100,13 @@ const options = computed(() => {
         data: [60],
         coordinateSystem: 'polar',
         itemStyle: {
-          normal: {
-            color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
-              offset: 0,
-              color: 'rgba(209, 172, 255, 1)'
-            }, {
-              offset: 1,
-              color: 'rgba(112, 20, 255, 1)'
-            }]),
-          }
+          color: new echarts.graphic.LinearGradient(1, 0, 0, 0, [{
+            offset: 0,
+            color: 'rgba(209, 172, 255, 1)'
+          }, {
+            offset: 1,
+            color: 'rgba(112, 20, 255, 1)'
+          }]),
         }
       },
     ]
