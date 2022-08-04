@@ -104,6 +104,7 @@ const { theWorld, timeContinuesToFlow } = useBallMove('.smart-element .box', '.s
       left: 9.5%;
       width: 7vh;
       height: 7vh;
+      background-image: url(@/assets/smart-element-item_bg1.png);
     }
 
     .data {
@@ -111,6 +112,7 @@ const { theWorld, timeContinuesToFlow } = useBallMove('.smart-element .box', '.s
       right: 20%;
       width: 8vh;
       height: 8vh;
+      background-image: url(@/assets/smart-element-item_bg2.png);
     }
 
     .algorithm {
@@ -118,6 +120,7 @@ const { theWorld, timeContinuesToFlow } = useBallMove('.smart-element .box', '.s
       left: 25%;
       width: 8vh;
       height: 8vh;
+      background-image: url(@/assets/smart-element-item_bg3.png);
     }
 
     .model {
@@ -125,6 +128,7 @@ const { theWorld, timeContinuesToFlow } = useBallMove('.smart-element .box', '.s
       right: 8.2%;
       width: 9vh;
       height: 9vh;
+      background-image: url(@/assets/smart-element-item_bg4.png);
     }
 
     .case {

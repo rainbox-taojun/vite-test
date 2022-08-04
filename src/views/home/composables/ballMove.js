@@ -113,7 +113,7 @@ export const useBallMove = (containerDomClass, ballDomClass) => {
       arr.cy = arr.y + circles.value[0].offsetHeight / 2;//圆心y坐标
       arr.movex = Math.floor(Math.random() * 2);//x轴移动方向
       arr.movey = Math.floor(Math.random() * 2);//y轴移动方向
-      arr.speed = speed.value
+      arr.speed = Math.random()// speed.value 
       arr.timer = null;//计时器
       arr.index = i;//索引值
       container.value.push(arr); //存放所有的属性值
