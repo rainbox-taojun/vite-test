@@ -42,12 +42,16 @@ const isOpen = computed({
   height: 100%;
   perspective: 1000px;
   z-index: 100;
+  transition: transform 0.5s ease;
+  transform: translateX(730px);
 
   &.is-open {
+    width: auto;
+    transform: translateX(0px);
 
     .center,
     .right {
-      transform: translateX(0) rotateY(0deg);
+      transform: rotateY(0deg);
     }
   }
 
@@ -63,13 +67,13 @@ const isOpen = computed({
 
   .center {
     margin-right: 10px;
-    transform: translateX(730px) rotateY(70deg);
+    transform: rotateY(-70deg);
     transform-origin: left;
     transition: transform 0.5s ease;
   }
 
   .right {
-    transform: translateX(00px) rotateY(-110deg);
+    transform: rotateY(111deg) translateZ(-680px);
     transform-origin: right;
     transition: transform 0.5s ease-out;
   }
@@ -84,7 +88,7 @@ const isOpen = computed({
     height: 101px;
     background-image: url(@/assets/sidebar-btn_bg.png);
     background-size: 100% 100%;
-    transform: translateX(715px);
+    transform: translateX(-15px);
     transition: transform 0.7s ease;
     cursor: pointer;
     z-index: 100;

@@ -24,7 +24,7 @@ export function useAMap ({
         center: mapConfig.center || [105.602725, 37.076636], //初始化地图中心点位置
         ...mapConfig
       })
-      callback()
+      callback(AMap)
     }).catch(e => {
       console.log(e)
     })

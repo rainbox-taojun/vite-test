@@ -2,7 +2,7 @@
  * @Author: 陶俊 
  * @Date: 2022-08-03 10:03:48 
  * @Last Modified by: 陶俊
- * @Last Modified time: 2022-08-03 16:26:31
+ * @Last Modified time: 2022-08-04 16:14:49
  */
 import { useEventListener } from './index'
 
@@ -42,8 +42,10 @@ export function useMapStandbyAnim (map, config = {
   const cancelAnima = () => {
     clearTimeout(timer.value)
     clearInterval(animator.value)
-    map.value.setPitch(defaultPitch.value)
-    map.value.setRotation(defaultRotation.value)
+    if (map.value) {
+      map.value.setPitch(defaultPitch.value)
+      map.value.setRotation(defaultRotation.value)
+    }
   }
 
   // 在一个变量的时间后，开始播放旋转动画

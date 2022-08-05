@@ -33,9 +33,10 @@ const isOpen = computed({
   position: absolute;
   left: 0;
   top: 0;
-  width: 360px;
+  width: 0;
   height: 100%;
   perspective: 1000px;
+  transition: width 0.5s ease;
   z-index: 100;
 
   .panel {
@@ -57,12 +58,14 @@ const isOpen = computed({
     height: 101px;
     background-image: url(@/assets/sidebar-btn_bg.png);
     background-size: 100% 100%;
-    transform: translateX(-345px) scaleX(-1);
+    transform: translateX(15px) scaleX(-1);
     transition: transform 0.5s ease;
     cursor: pointer;
   }
 
   &.is-open {
+    width: 360px;
+
     .panel {
       transform: translateX(0);
     }

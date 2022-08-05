@@ -51,7 +51,7 @@ onMounted(async () => {
           <h3 class="title">{{ eduData[0].name }}</h3>
           <div class="icon"></div>
           <div class="value">
-            <CountTo :endVal="eduData[0].value" />
+            <CountTo :endVal="Number.parseFloat(eduData[0].value)" />
             <span>{{ eduData[0].unit }}</span>
           </div>
         </div>
@@ -81,7 +81,7 @@ onMounted(async () => {
           <h3 class="title">{{ eduData[1].name }}</h3>
           <div class="icon"></div>
           <div class="value">
-            <CountTo :endVal="eduData[1].value" />
+            <CountTo :endVal="Number.parseFloat(eduData[1].value)" />
           </div>
         </div>
 
@@ -89,7 +89,7 @@ onMounted(async () => {
           <h3 class="title">{{ eduData[2].name }}</h3>
           <div class="icon"></div>
           <div class="value">
-            <CountTo :endVal="eduData[2].value" />
+            <CountTo :endVal="Number.parseFloat(eduData[2].value)" />
           </div>
         </div>
       </CardV1>
