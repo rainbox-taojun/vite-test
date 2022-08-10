@@ -1,23 +1,4 @@
-export const districtNameToPinying = name => {
-  const obj = [
-    { name: '鹿城区', pinying: 'LuCheng' },
-    { name: '龙湾区', pinying: 'LongWan' },
-    { name: '浙南', pinying: 'ZheNan' },
-    { name: '瓯海区', pinying: 'OuHai' },
-    { name: '瓯江口', pinying: 'OuJiangKou' },
-    { name: '洞头区', pinying: 'DongTou' },
-    { name: '永嘉县', pinying: 'YongJia' },
-    { name: '平阳县', pinying: 'PingYang' },
-    { name: '苍南县', pinying: 'CangNan' },
-    { name: '龙港市', pinying: 'LongGang' },
-    { name: '文成县', pinying: 'WenCheng' },
-    { name: '泰顺县', pinying: 'TaiShun' },
-    { name: '瑞安市', pinying: 'RuiAn' },
-    { name: '乐清市', pinying: 'YueQing' },
-  ]
 
-  return obj.find(item => item.name === name).pinying
-}
 
 export const loadGeoJsonFile = async name => {
   try {
