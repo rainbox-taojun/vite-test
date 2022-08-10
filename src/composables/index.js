@@ -5,6 +5,7 @@ import { useEcharts } from './echarts'
 import { useAutoScroll } from './autoScroll'
 import { useMapStandbyAnim } from './mapStandbyAnim'
 import { useMapPolygon } from './mapPolygon'
+import { useMapMarker } from './mapMarker'
 
 export {
   useEventListener,
@@ -13,5 +14,6 @@ export {
   useEcharts,
   useAutoScroll,
   useMapStandbyAnim,
-  useMapPolygon
+  useMapPolygon,
+  useMapMarker
 }

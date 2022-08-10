@@ -5,8 +5,8 @@ import MapTypeSwitch from './components/MapTypeSwitch.vue'
 import MapShadow from './components/MapShadow.vue'
 import { useAMap, useMapStandbyAnim } from '@/composables'
 
-import { useArea } from './composables/area'
-const { createAreas, showAreas, hideAreas } = useArea()
+import { useAreaAndPoint } from './composables/areaAndPoint'
+const { initAreas, showAreas, hideAreas } = useAreaAndPoint()
 
 let satellite = null // 卫星图图层
 let heatmap = null
@@ -43,7 +43,7 @@ const { map } = useAMap({
       }
     })
     map.value.addLayer(satellite)
-    createAreas(map)
+    initAreas(map)
   }
 })
 

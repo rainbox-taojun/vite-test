@@ -13,7 +13,7 @@ export function useMapPolygon () {
     })
     polygon.on('mouseover', () => {
       polygon.setOptions({
-        fillOpacity: 0.7,
+        fillOpacity: 0.3,
         fillColor: '#7bccc4'
       })
     })
