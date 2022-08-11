@@ -1,6 +1,7 @@
-import { useMapPolygon, useMapMarker } from '@/composables'
+import { useMapPolygon } from '@/composables'
 import wenzhouGeo from '@/assets/geoJson/Wenzhou'
-import { loadGeoJsonFile } from '../tools'
+
+import { loadGeoJsonFile, multiarr } from '../tools'
 
 import Store from '../store'
 
@@ -23,9 +24,9 @@ export function useArea () {
 
   // 删除当前显示在地图上的多边形 和 标记点
   const delAreas = map => {
-    polygonList.value.map(polygon => {
-      polygon.destroy()
-    })
+    const mapPolygon = map.value.getAllOverlays('polygon')
+    map.value.remove(mapPolygon)
+    polygonList.value = []
   }
 
   // 判断是那个行政区
@@ -69,16 +70,17 @@ export function useArea () {
     const data = await loadGeoJsonFile(fileName)//获取到文件内数据
 
     let coordinates = []
+    polygonList.value = []
+    delAreas(map) // 删除旧的
 
     data.features.map(item => {
       // 配对地图中心点在哪个多边形内
-      if (item.geometry.coordinates.some(path => mapStore.checkCenterInPolygon(path))) {
+      if (multiarr(item.geometry.coordinates) >= 2 && item.geometry.coordinates.some(path => mapStore.checkCenterInPolygon(path))) {
         currentSubArea.value = item.properties
         coordinates = item.geometry.coordinates
       }
     })
-    polygonList.value = []
-    delAreas(map) // 删除旧的
+
     coordinates.map(item => {
       const polygon = createPolygon(map, item)
       polygonList.value.push(polygon)
@@ -86,12 +88,23 @@ export function useArea () {
   }
 
   const mapEvent = map => {
+    let oldCenter = []
+    let oldZoom
+
+    map.value.on('movestart', () => {
+      oldCenter = map.value.getCenter()
+    })
+
+    map.value.on('zoomstart', () => {
+      oldZoom = map.value.getZoom()
+    })
+
     // 中心点移动
     map.value.on('moveend', () => {
-      const oldCenter = mapStore.center
       mapStore.center = map.value.getCenter()
+      mapStore.zoom = map.value.getZoom() //获取当前地图级别
 
-      if (oldCenter.lat !== mapStore.center.lat || oldCenter.lng !== mapStore.center.lng) {
+      if (oldCenter.lat !== mapStore.center.lat || oldCenter.lng !== mapStore.center.lng || map.value.getZoom() !== oldZoom) {
         delAreas(map) // 删除旧的
         checkDistrict(map) // 得到新的中心点所在行政区数据
         createAreas(map)
@@ -100,7 +113,7 @@ export function useArea () {
 
     // 缩放
     map.value.on('zoomend', () => {
-      mapStore.zoom = map.value.getZoom() //获取当前地图级别
+
     })
   }
 

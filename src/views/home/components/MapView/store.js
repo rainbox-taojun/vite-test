@@ -1,7 +1,7 @@
 const typeRange = [
   { name: 'district', min: 0, max: 12.99 },
-  { name: 'street', min: 13, max: 14.99 },
-  { name: 'grid', min: 15, max: 99 }
+  { name: 'street', min: 13, max: 13.99 },
+  { name: 'grid', min: 14, max: 99 }
 ]
 
 class Store {

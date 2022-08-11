@@ -112,5 +112,30 @@ const getHeatmapData = async () => {
     width: 100%;
     height: 100%;
   }
+
+  :deep(.marker-route.marker-marker-bus-from) {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    background-image: url(@/assets/marker_bg.png);
+    background-size: 100% 100%;
+
+    span {
+      position: absolute;
+      bottom: 1px;
+      left: 0;
+      right: 0;
+      height: 22px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+      font-size: 16px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #FFFFFF;
+      line-height: 22px;
+      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5000);
+    }
+  }
 }
 </style>
