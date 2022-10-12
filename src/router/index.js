@@ -11,7 +11,7 @@ export const constantRoutes = [
         path: '/home',
         name: 'Home',
         component: () => import(/* webpackChunkName: "home" */ '@/views/home/index.vue'),
-        meta: { title: '温州市基层智治系统' }
+        meta: { title: '党建统领' }
       }
     ]
   }

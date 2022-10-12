@@ -8,11 +8,11 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Angle: typeof import('./components/Angle.vue')['default']
-    AreaSelect: typeof import('./components/AreaSelect.vue')['default']
     CardV1: typeof import('./components/CardV1.vue')['default']
     ChartRender: typeof import('./components/ChartRender.vue')['default']
     CountTo: typeof import('./components/CountTo/index.vue')['default']
     DynamicTable: typeof import('./components/DynamicTable/index.vue')['default']
+    ElButton: typeof import('element-plus/es')['ElButton']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElCollapse: typeof import('element-plus/es')['ElCollapse']
     ElCollapseItem: typeof import('element-plus/es')['ElCollapseItem']

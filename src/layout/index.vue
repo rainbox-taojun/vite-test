@@ -16,21 +16,21 @@ import AppHeader from './components/AppHeader/index.vue'
 
 <style lang="scss" scoped>
 .layout {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 7, 46, 1);
 
   &>header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 7.40740741vh;
+    height: 62.29px;
+    z-index: 999;
   }
 
   &>main {
-    padding: 20px;
-    flex: 1;
-    height: calc(100% - 7.40740741vh);
+    height: 100%;
   }
 }
 </style>
