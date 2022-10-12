@@ -18,19 +18,16 @@ import AppHeader from './components/AppHeader/index.vue'
 .layout {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 7, 46, 1);
+  background-color: rgba(3, 7, 24, 1);
 
   &>header {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 62.29px;
     z-index: 999;
   }
 
   &>main {
-    height: 100%;
+    height: calc(100% - 62.29px);
   }
 }
 </style>

@@ -5,12 +5,12 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/home',
+    redirect: '/gov-leaders',
     children: [
       {
-        path: '/home',
-        name: 'Home',
-        component: () => import(/* webpackChunkName: "home" */ '@/views/home/index.vue'),
+        path: '/gov-leaders',
+        name: 'GovLeaders',
+        component: () => import(/* webpackChunkName: "gov-leaders" */ '@/views/gov-leaders/index.vue'),
         meta: { title: '党建统领' }
       }
     ]

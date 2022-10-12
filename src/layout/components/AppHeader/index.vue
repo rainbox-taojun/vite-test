@@ -6,7 +6,7 @@ import { useEventListener } from '@/composables'
 const route = useRoute()
 const currentRoute = computed(() => route.path.value)
 const leftRoutes = ref([
-  { path: '/home', name: '党建统领' },
+  { path: '/gov-leaders', name: '党建统领' },
   { path: '', name: '经济生态' },
 ])
 const rightRoutes = ref([
