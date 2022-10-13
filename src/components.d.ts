@@ -10,7 +10,6 @@ declare module '@vue/runtime-core' {
     Angle: typeof import('./components/Angle.vue')['default']
     CardV1: typeof import('./components/CardV1.vue')['default']
     ChartRender: typeof import('./components/ChartRender.vue')['default']
-    copy: typeof import('./components/PanelV2 copy.vue')['default']
     CountTo: typeof import('./components/CountTo/index.vue')['default']
     DynamicTable: typeof import('./components/DynamicTable/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
