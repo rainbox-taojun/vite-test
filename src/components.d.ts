@@ -15,6 +15,8 @@ declare module '@vue/runtime-core' {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElDivider: typeof import('element-plus/es')['ElDivider']
+    ElTable: typeof import('element-plus/es')['ElTable']
+    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     PanelV1: typeof import('./components/PanelV1.vue')['default']
     PanelV2: typeof import('./components/PanelV2.vue')['default']
     PanelV3: typeof import('./components/PanelV3.vue')['default']

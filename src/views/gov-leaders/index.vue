@@ -5,7 +5,7 @@ import AppealUp from './components/AppealUp.vue'
 import AppealDown from './components/AppealDown.vue'
 import PolicyDecision from './components/PolicyDecision.vue'
 import ProblemWarning from './components/ProblemWarning/index.vue'
-import PeoplesLivelihood from './components/PeoplesLivelihood.vue'
+import PeoplesLivelihood from './components/PeoplesLivelihood/index.vue'
 import CadreEvaluation from './components/CadreEvaluation.vue'
 import Overwatch from './components/Overwatch.vue'
 </script>
