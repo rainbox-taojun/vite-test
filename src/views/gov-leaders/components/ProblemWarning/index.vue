@@ -4,10 +4,15 @@ import InfoBarUp from './components/InfoBarUp.vue'
 import RadarChart from './components/RadarChart.vue'
 import InfoBarDown from './components/InfoBarDown.vue'
 
+const infoUpData = ref({
+  warning: 260,
+  warningYellow: 26,
+  warningRed: 234
+})
 const infoDownData = ref([
   { label: '处理人数', value: 540, unit: '人' },
-  { label: '一把手处理人数', value: 28, unit: '人' },
-  { label: '挽回损失', value: 5525, unit: '万元' },
+  { label: '一把手处理人数', value: 41, unit: '人' },
+  { label: '挽回损失', value: 55.59, unit: '万元' },
   { label: '典型案例', value: 5, unit: '个' },
   { label: '制度和成效', value: 38, unit: '个' },
   { label: '监督模型', value: 8, unit: '个' },
@@ -17,12 +22,14 @@ const infoDownData = ref([
 <template>
   <PanelV3
     class="problem-warning"
-    title="问题预警"
+    title="风纪预警"
   >
     <div class="content-wrap">
       <TabBar />
-      <InfoBarUp />
-      <div class="chart-title">高频问题</div>
+      <InfoBarUp :data="infoUpData" />
+      <div class="
+        chart-title">高频问题
+      </div>
       <RadarChart class="radar-chart" />
       <InfoBarDown :data="infoDownData" />
     </div>
@@ -36,7 +43,7 @@ const infoDownData = ref([
   height: calc(100% + 29px);
 
   .chart-title {
-    margin-bottom: 10px;
+    margin-bottom: 2px;
     display: flex;
     align-items: center;
     justify-content: center;

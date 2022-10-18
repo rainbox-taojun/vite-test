@@ -2,13 +2,15 @@
 import { useEcharts } from '@/composables'
 import { radarItemBg } from './radarItemBg'
 
-const data = ref([43.5, 85, 65, 85, 85, 85])
+const data1 = ref([4.35, 25.5, 1.2, 12.75, 16.33, 39.84])
+const data2 = ref([11, 64, 3, 32, 41, 100])
 const yData = ref([
   '权利寻租、优亲厚友、违规插手工程',
   '围标串标',
   '违规拆分工程',
   '违规直接发包',
-  '其他',
+  '优亲厚友',
+  '违规插手工程'
 ])
 
 const indicator = computed(() => {
@@ -24,12 +26,9 @@ const options = computed(() => {
   return {
     tooltip: {},
     radar: {
-      radius: "55%", //大小
+      radius: "50%", //大小
       nameGap: 3, // 图中工艺等字距离图的距离
-      center: ["50%", "60%"], // 图的位置
-      textStyle: {
-
-      },
+      center: ["50%", "50%"], // 图的位置
       name: {
         textStyle: {
           color: "rgba(255, 255, 255, 0.8)",
@@ -41,7 +40,7 @@ const options = computed(() => {
         },
         formatter: function (name) {
           const index = yData.value.findIndex(item => item === name)
-          return '{a|' + name + '}\n' + '{b|' + data.value[index] + '%' + '}'
+          return '{a|' + name + '}\n' + '{c|' + data2.value[index] + '条 }{b|' + data1.value[index] + '%}'
         },
         rich: {
           a: {
@@ -115,7 +114,7 @@ const options = computed(() => {
           {
             symbol: "circle",
             symbolSize: 4.4,
-            value: data.value,
+            value: data1.value,
             areaStyle: { color: "rgba(255, 198, 0, 0.3)" },
             itemStyle: {
               borderWidth: 1,
@@ -146,6 +145,6 @@ const { refreshChart } = useEcharts('problem-warning-radar-chart', options.value
 <style lang="scss" scoped>
 .radar-chart {
   width: 100%;
-  height: 50%;
+  height: 55%;
 }
 </style>

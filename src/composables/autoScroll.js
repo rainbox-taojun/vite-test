@@ -24,6 +24,9 @@ export const useAutoScroll = (container, content, speed = 100, step = 1, isSmoot
     timer.value = setInterval(() => {
       // 2:可能出现的精度丢失
       if (parent.scrollTop >= (child.scrollHeight * 2 - parent.offsetHeight)) {
+        if (isSmooth) {
+          parent.style['scroll-behavior'] = 'unset'
+        }
         const newChild = child.cloneNode(true)
         parent.appendChild(newChild)
         child.remove()
@@ -31,6 +34,11 @@ export const useAutoScroll = (container, content, speed = 100, step = 1, isSmoot
 
         scrollTop -= child.scrollHeight
 
+        if (isSmooth) {
+          setTimeout(() => {
+            parent.style['scroll-behavior'] = 'smooth'
+          }, 1)
+        }
       } else {
         scrollTop += step
       }

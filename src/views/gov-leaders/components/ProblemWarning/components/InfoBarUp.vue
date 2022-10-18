@@ -10,7 +10,7 @@ const yellowBar = computed(() => {
   if (props.data?.warningYellow === props.data?.warningRed) {
     return 50
   }
-  return (props.data?.warningYellow / (props.data?.warningYellow + props.data?.warningRed)).toFixed(1)
+  return (props.data?.warningYellow / (props.data?.warningYellow + props.data?.warningRed) * 100).toFixed(0)
 })
 </script>
 

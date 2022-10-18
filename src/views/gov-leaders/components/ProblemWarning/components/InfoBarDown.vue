@@ -30,7 +30,7 @@ const props = defineProps({
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: 20%;
+  height: 19%;
   background-image: url(@/assets/villages-towns/warning-info_bg.png);
   background-size: cover;
 

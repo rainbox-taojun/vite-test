@@ -37,10 +37,7 @@ useEventListener(window, 'resize', () => {
         <span class="menu-item-text">{{item.name}}</span>
       </div>
     </div>
-    <div
-      class="title"
-      :style="{transform: `scaleY(0.75) scaleX(${titleScaleX})`}"
-    >
+    <div class="title">
       <span>
         乡镇综合指挥中心
       </span>
