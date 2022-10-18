@@ -1,38 +1,32 @@
 <script setup name="MapView">
-import { getHeatmap } from '@/api'
 import MapShadow from './components/MapShadow.vue'
-import { useAMap } from '@/composables'
+import { useEventListener } from '@/composables'
 
-import { useArea } from './composables/area'
-import { usePoint } from './composables/point'
-const { initAreas, showAreas, hideAreas } = useArea()
-const { initPoint, showPoint, hidePoint } = usePoint()
+const visible = ref(true)
 
-let satellite = null // 卫星图图层
-
-// 地图初始化
-const { map } = useAMap({
-  container: 'map-container',
-  center: [120.699279, 27.993849],
-  zoom: 12,
-  terrain: true, // 3D建筑
-  mapStyle: 'amap://styles/76655daf251d3a84065af27fa04be6a8', // amap://styles/76655daf251d3a84065af27fa04be6a8
-  callback: (AMap) => {
-    satellite = new AMap.TileLayer.Satellite()
-
-    map.value.addLayer(satellite)
-    initAreas(map)
-    initPoint(map)
-  }
+useEventListener(window, 'resize', () => {
+  visible.value = false
+  nextTick(() => {
+    visible.value = true
+  })
 })
 </script>
 
 <template>
   <div class="map-view">
-    <div
+    <header>
+      <span>
+        郭溪街道
+      </span>
+    </header>
+
+    <iframe
+      v-if="visible"
+      src="http://59.202.23.34:8186/tq-bigscreen-web/#/share/1580848071670439937?token=eyJhbGciOiJIUzUxMiJ9.eyJ0b2tlbl91c2VyX2lkIjoxLCJ0b2tlbl9jcmVhdGVfdGltZSI6MTY2NTczODkyNjY4Nywic3ViIjoiamRlbmciLCJ0b2tlbl91c2VyX25hbWUiOiJqZGVuZyIsImV4cCI6MTY2NTgyNTMyNiwidG9rZW5fdGVuYW50X2lkIjoiMDAwMDAwIiwidG9rZW5fdXNlcl9wYXNzd29yZCI6IiQyYSQxMCRjWnRXYVJ5MU13UGZUSll3UmQzcTRPN2ZMT3NSZTNYbEc5VDhqSVQvU1Q4bHFVdXMvV2ZmSyJ9.g24K-Bh3mPzM6GhvTF5xhw288aIGTlz_hOCnZ3vt4BfeYFhJaUsOne0gQpWVhYcliW7J5NVXsdcPMQeBUlGs0w&shareToken=none"
+      frameborder="0"
       class="map-container"
-      id="map-container"
-    />
+    ></iframe>
+    <!-- <div class="map-img"></div> -->
 
     <MapShadow />
   </div>
@@ -42,9 +36,37 @@ const { map } = useAMap({
 .map-view {
   position: relative;
 
+  &>header {
+    margin: auto;
+    width: calc(100% - 54px);
+    height: 50px;
+    background-image: url(@/assets/villages-towns/map-header_bg.png);
+    background-position: center bottom;
+    background-size: 100% 70%;
+    background-repeat: no-repeat;
+
+    span {
+      margin-left: 5%;
+      font-size: 28px;
+      font-style: oblique;
+      font-weight: bolder;
+      background: linear-gradient(#fff, #ABE4FF);
+      color: transparent;
+      -webkit-background-clip: text;
+    }
+  }
+
+  .map-img {
+    width: 100%;
+    height: calc(100% - 50px);
+    background-image: url(@/assets/villages-towns/map.png);
+    background-position: center center;
+    background-size: cover;
+  }
+
   .map-container {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 50px);
   }
 
   :deep(.marker-route.marker-marker-bus-from) {

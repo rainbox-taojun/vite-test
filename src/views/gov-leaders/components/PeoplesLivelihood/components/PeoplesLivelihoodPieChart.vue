@@ -43,7 +43,7 @@ const option = computed(() => {
     series: [{
       type: "pie",
       center: ['22%', '45%'],
-      radius: ["45%", "75%"],
+      radius: ["40%", "70%"],
       itemStyle: {
         normal: {
           color: 'transparent',
@@ -66,7 +66,7 @@ const option = computed(() => {
     {
       type: 'pie',
       center: ['22%', '45%'],
-      radius: ['58%', '48%'],
+      radius: ['51%', '40%'],
       hoverAnimation: false,
       data: [
         {

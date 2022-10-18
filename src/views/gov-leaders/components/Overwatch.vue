@@ -2,14 +2,14 @@
 import { useAutoScroll } from '@/composables'
 
 const list = ref([
-  { adressDetail: '郭溪村', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '石马社区开展“走心洗楼”回头看活动。' },
-  { adressDetail: '三合村', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '石马社区开展“走心洗楼”回头看活动。' },
-  { adressDetail: '塘下村', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '石马社区开展“走心洗楼”回头看活动。' },
-  { adressDetail: '郭溪社区', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '石马社区开展“走心洗楼”回头看活动。' },
-  { adressDetail: '郭溪村', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '石马社区开展“走心洗楼”回头看活动。' },
-  { adressDetail: '三合村', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '石马社区开展“走心洗楼”回头看活动。' },
-  { adressDetail: '塘下村', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '石马社区开展“走心洗楼”回头看活动。' },
-  { adressDetail: '郭溪社区', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '石马社区开展“走心洗楼”回头看活动。' },
+  { adressDetail: '郭溪村', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '开展“走心洗楼”回头看活动。' },
+  { adressDetail: '三合村', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '开展“走心洗楼”回头看活动。' },
+  { adressDetail: '塘下村', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '开展“走心洗楼”回头看活动。' },
+  { adressDetail: '郭溪社区', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '开展“走心洗楼”回头看活动。' },
+  { adressDetail: '郭溪村', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '开展“走心洗楼”回头看活动。' },
+  { adressDetail: '三合村', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '开展“走心洗楼”回头看活动。' },
+  { adressDetail: '塘下村', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '开展“走心洗楼”回头看活动。' },
+  { adressDetail: '郭溪社区', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '开展“走心洗楼”回头看活动。' },
 ])
 
 useAutoScroll('.overwatch .list-wrap', '.overwatch .list-wrap>.list', 50)
@@ -56,7 +56,7 @@ useAutoScroll('.overwatch .list-wrap', '.overwatch .list-wrap>.list', 50)
   height: 100%;
 
   &>header {
-    margin-bottom: 10px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     height: 35px;
