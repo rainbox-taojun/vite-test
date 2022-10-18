@@ -36,11 +36,6 @@ useAutoScroll('.policy-decision > main', '.policy-decision .list', 50)
 
 <style lang="scss" scoped>
 .policy-decision {
-  grid-row-start: 2;
-  grid-row-end: 4;
-  grid-column-start: 2;
-  grid-column-end: 3;
-
   .list {
     list-style-type: none;
     margin: 0;

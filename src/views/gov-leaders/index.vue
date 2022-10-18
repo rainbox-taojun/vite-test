@@ -1,8 +1,7 @@
 <script setup name="GovLeaders">
 import MapView from './components/MapView/index.vue'
 import Organization from './components/Organization/index.vue'
-import AppealUp from './components/AppealUp.vue'
-import AppealDown from './components/AppealDown.vue'
+import Appeal from './components/Appeal/index.vue'
 import PolicyDecision from './components/PolicyDecision.vue'
 import ProblemWarning from './components/ProblemWarning/index.vue'
 import PeoplesLivelihood from './components/PeoplesLivelihood/index.vue'
@@ -15,9 +14,8 @@ import Overwatch from './components/Overwatch.vue'
 
     <div class="left">
       <Organization />
-      <AppealUp />
+      <Appeal />
       <PolicyDecision />
-      <AppealDown />
     </div>
     <div class="center">
       <MapView class="map" />
@@ -52,9 +50,8 @@ import Overwatch from './components/Overwatch.vue'
     grid-area: left;
 
     display: grid;
-    grid-template-columns: repeat(2, calc(50% - 20px / 2));
-    grid-template-rows: 50% 30% 20%;
-    grid-gap: 0 20px;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 28% 22%;
     width: 100%;
     height: 100%;
   }

@@ -23,17 +23,12 @@ import PublicInfo from './components/PublicInfo.vue'
 
 <style lang="scss" scoped>
 .organization {
-  grid-column-start: 1;
-  grid-column-end: 3;
-
   .organization-content {
     display: grid;
     grid-template-columns: repeat(2, calc((100% - 10px) / 2));
     grid-template-rows: repeat(3, calc((100% - 20px) / 3));
     grid-gap: 10px;
     height: 100%;
-
-
   }
 }
 </style>
