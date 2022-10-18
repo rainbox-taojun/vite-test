@@ -9,7 +9,7 @@ const props = defineProps({
   },
   colors: {
     type: Array,
-    default: ['#06BEFF', '#007EFE']
+    default: ['#06BEFF', '#007EFE', 'rgba(71, 135, 212, 1)', 'rgba(71, 108, 212, 0.5000)']
   }
 })
 
@@ -42,47 +42,71 @@ const options = computed(() => {
     },
     series: [
       {
-        name: '报警',
+        name: '值',
+        type: 'bar',
+        animationDuration: 0,
+        legendHoverLink: false,
+        barGap: '-100%',
+        padding: 10,
+        itemStyle: {
+          barBorderRadius: [0, 0, 30, 30],
+          color: {
+            type: 'linear',
+            x: 0,
+            y: 0,
+            x2: 0,
+            y2: 1,
+            colorStops: [
+              {
+                offset: 0,
+                color: props.colors[0],
+              },
+              {
+                offset: 1,
+                color: props.colors[1],
+              },
+            ],
+          },
+        },
+        barWidth: 14,
+        data: [props.data?.percentage],
+        z: 1,
+      },
+      {
+        name: '格子',
         type: 'pictorialBar',
+        barGap: '-100%',
         animationDuration: 0,
         legendHoverLink: false,
         symbolRepeat: 'true',
         symbolMargin: '20%',
         symbol: 'rect',
-        symbolSize: [15, 5],
+        symbolClip: true,
+        symbolSize: [13, 1],
+        symbolMargin: 2,
+        symbolOffset: [0, 0],
         itemStyle: {
-          normal: {
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              {
-                offset: 0,
-                color: '#06BEFF',
-              },
-              {
-                offset: 1,
-                color: '#007EFE',
-              },
-            ])
-          }
+          color: '#333',
         },
         data: [props.data?.percentage],
-        z: 1,
+        z: 2,
         animationEasing: 'elasticOut'
       },
       {
         name: "背景",
-        type: 'pictorialBar',
+        type: 'bar',
+        barWidth: 15,
+        barGap: '-100%',
         animationDuration: 0,
-        symbolRepeat: 'fixed',
-        symbolMargin: '20%',
-        symbol: 'rect',
-        symbolSize: [15, 5],
         itemStyle: {
-          color: 'RGBA(62, 62, 62, 0.8)'
+          color: props.colors[2],
+          barBorderRadius: 30,
+          barBorderColor: props.colors[3]
         },
         label: {
           show: false
         },
-        data: [0],
+        data: [100],
         z: 0,
         animationEasing: 'elasticOut'
       }

@@ -33,7 +33,10 @@ const rightData = ref({
         <AppealInfo :data="leftData" />
       </div>
       <div class="right">
-        <AppealInfo :data="rightData" />
+        <AppealInfo
+          :data="rightData"
+          :colors="['#FFCD63','#FF632A', 'rgba(212, 194, 71, 0.5)', 'rgba(212, 174, 71, 1)']"
+        />
       </div>
     </main>
   </div>
