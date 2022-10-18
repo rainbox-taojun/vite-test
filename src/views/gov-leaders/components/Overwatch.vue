@@ -12,7 +12,7 @@ const list = ref([
   { adressDetail: '郭溪社区', address: '瓯海区郭溪街道', date: '2022-09-30 12:00:00', content: '开展“走心洗楼”回头看活动。' },
 ])
 
-useAutoScroll('.overwatch .list-wrap', '.overwatch .list-wrap>.list', 50)
+useAutoScroll('.overwatch .list-wrap', '.overwatch .list-wrap>.list', 1500, 68, true)
 </script>
 
 <template>
@@ -36,7 +36,7 @@ useAutoScroll('.overwatch .list-wrap', '.overwatch .list-wrap>.list', 50)
       <main class="list-wrap">
         <ul class="list">
           <li v-for="(item, index) in list">
-            <div class="number">{{index}}</div>
+            <div class="number">{{index + 1}}</div>
             <div class="title">
               <span class="focus">{{item.adressDetail}}</span>
               <el-divider direction="vertical" />

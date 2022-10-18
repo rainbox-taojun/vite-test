@@ -8,7 +8,7 @@ const props = defineProps({
   }
 })
 
-useAutoScroll('.peoples-livelihood-list', '.peoples-livelihood-list .list', 50)
+useAutoScroll('.peoples-livelihood-list', '.peoples-livelihood-list .list', 1500, 72, true)
 
 </script>
 

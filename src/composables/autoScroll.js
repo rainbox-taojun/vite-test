@@ -1,4 +1,4 @@
-export const useAutoScroll = (container, content, speed = 100) => {
+export const useAutoScroll = (container, content, speed = 100, step = 1, isSmooth = false) => {
   const timer = ref(null)
   let parent = null
   let child = null
@@ -7,6 +7,9 @@ export const useAutoScroll = (container, content, speed = 100) => {
     parent = document.querySelector(container)
     child = document.querySelector(content)
     parent.style.overflow = 'hidden' // 隐藏
+    if (isSmooth) {
+      parent.style['scroll-behavior'] = 'smooth'
+    }
     child.style.marginTop = 0
     child.style.marginBottom = 0
     const newChild = child.cloneNode(true)
@@ -29,7 +32,7 @@ export const useAutoScroll = (container, content, speed = 100) => {
         scrollTop -= child.scrollHeight
 
       } else {
-        scrollTop++
+        scrollTop += step
       }
       parent.scrollTo(0, scrollTop)
     }, speed)

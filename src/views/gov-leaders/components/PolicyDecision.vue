@@ -15,7 +15,7 @@ const list = ref([
   { label: '11村社孤寡老人养老问题解决', date: '2022-09-30', content: '内容占位内容占位内容占位内容占位内容占位' }
 ])
 
-useAutoScroll('.policy-decision > main', '.policy-decision .list', 50)
+useAutoScroll('.policy-decision > main', '.policy-decision .list', 1500, 80, true)
 </script>
 
 <template>
