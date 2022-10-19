@@ -61,8 +61,7 @@ import Overwatch from './components/Overwatch.vue'
 
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: calc(53% - 20px) calc(30% - 10px) calc(17% - 10px);
-    grid-gap: 20px;
+    grid-template-rows: 50% 28% 22%;
     width: 100%;
     height: 100%;
   }

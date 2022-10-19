@@ -123,7 +123,7 @@ const yellowBar = computed(() => {
           justify-content: center;
           width: 50px;
           height: 22px;
-          font-size: 12px;
+          font-size: 14px;
           color: rgba(247, 247, 247, 0.8);
           line-height: 17px;
           background-image: url(@/assets/villages-towns/dialog_bg.png);
@@ -149,7 +149,7 @@ const yellowBar = computed(() => {
 
     .item .label {
       text-align: center;
-      font-size: 12px;
+      font-size: 14px;
       color: rgba(255, 255, 255, 0.8);
       line-height: 14px;
     }
@@ -157,7 +157,7 @@ const yellowBar = computed(() => {
     .item .value {
       text-align: center;
       height: 14px;
-      font-size: 12px;
+      font-size: 14px;
       font-family: PingFangSC-Medium, PingFang SC;
       font-weight: 500;
       color: #FFFFFF;

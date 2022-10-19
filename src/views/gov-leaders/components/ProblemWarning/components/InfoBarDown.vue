@@ -42,8 +42,8 @@ const props = defineProps({
     display: flex;
 
     .item {
-      padding-right: 13px;
-      margin-right: 13px;
+      padding-right: 5px;
+      margin-right: 5px;
       border-right: 1px solid rgba(255, 255, 255, 0.1);
 
       &:last-child {
@@ -54,7 +54,7 @@ const props = defineProps({
 
       .label {
         height: 14px;
-        font-size: 12px;
+        font-size: 14px;
         font-family: PingFangSC-Regular, PingFang SC;
         font-weight: 400;
         color: rgba(255, 255, 255, 0.8);

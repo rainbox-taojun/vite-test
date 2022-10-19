@@ -4,30 +4,37 @@ import { useAutoScroll } from '@/composables'
 const columns = ref([
   {
     label: '村(社区)',
+    width: 80,
     key: 'name',
   },
   {
     label: '基础值',
+    width: 80,
     key: 'value1',
   },
   {
     label: '干事值',
+    width: 80,
     key: 'value2',
   },
   {
     label: '发展值',
+    width: 70,
     key: 'value3',
   },
   {
     label: '规矩值',
+    width: 70,
     key: 'value4',
   },
   {
     label: '满意值',
+    width: 70,
     key: 'value5',
   },
   {
     label: '总分',
+    width: 80,
     key: 'total',
   }
 ])
@@ -63,6 +70,10 @@ const data = ref([
   --ep-fill-color-light: rgba(43, 174, 254, 0.15);
   --ep-text-color-regular: #fff;
   --ep-text-color-primary: #fff;
+
+  // :deep(.ep-table .cell) {
+  //   padding: 0 6px;
+  // }
 
   .table-wrap {
     margin: -19px -10px -10px -10px;

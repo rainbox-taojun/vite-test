@@ -29,7 +29,7 @@ const currentTab = ref('全部')
     justify-content: center;
     width: 14%;
     background-image: url(@/assets/villages-towns/tab.png);
-    font-size: 12px;
+    font-size: 14px;
     font-family: PingFangSC-Medium, PingFang SC;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.8);
