@@ -27,15 +27,21 @@ export default ({ command }) => {
           target: 'http://localhost:3000',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/dev-api/, '')
+        },
+        '/basic': {
+          target: 'http://122.228.7.96:10010/',
+          changeOrigin: true,
+          pathRewrite: { '^/basic': '' },
+          secure: false
         }
       }
     },
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use "@/styles/element/index.scss" as *;`,
-        },
-      },
+          additionalData: `@use "@/styles/element/index.scss" as *;`
+        }
+      }
     },
     plugins: [
       vue(),
@@ -46,10 +52,10 @@ export default ({ command }) => {
         resolvers: [
           ElementPlusResolver(),
           IconsResolver({
-            prefix: 'Icon',
-          }),
+            prefix: 'Icon'
+          })
         ],
-        dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
+        dts: path.resolve(pathSrc, 'auto-imports.d.ts')
       }),
       Components({
         dirs: ['src/components', 'src/components/*/'],
@@ -58,16 +64,16 @@ export default ({ command }) => {
         include: [/\.vue$/, /\.vue\?vue/],
         resolvers: [
           IconsResolver({
-            enabledCollections: ['ep'],
+            enabledCollections: ['ep']
           }),
           ElementPlusResolver({
-            importStyle: 'sass',
-          }),
+            importStyle: 'sass'
+          })
         ],
-        dts: 'src/components.d.ts',
+        dts: 'src/components.d.ts'
       }),
       Icons({
-        autoInstall: true,
+        autoInstall: true
       }),
       viteMockServe({
         supportTs: false,
@@ -78,9 +84,13 @@ export default ({ command }) => {
         injectCode: `
           import { setupProdMockServer } from '/build/mock/mockProdServer';
           setupProdMockServer();
-        `,
+        `
       }),
       svgBuilder('./src/icons/svg/')
     ]
   }
 }
+
+
+http://122.228.7.96:10010/basic/driver/map/list?orgcode=1.1.14.
+http://localhost:3000/basic/driver/map/list?orgcode=1.1.14.
