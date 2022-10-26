@@ -93,7 +93,3 @@ export default ({ command }) => {
     ]
   }
 }
-
-
-http://122.228.7.96:10010/basic/driver/map/list?orgcode=1.1.14.
-http://localhost:3000/basic/driver/map/list?orgcode=1.1.14.
