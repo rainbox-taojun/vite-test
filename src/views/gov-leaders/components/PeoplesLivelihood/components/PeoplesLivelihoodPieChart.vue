@@ -38,7 +38,7 @@ const option = computed(() => {
       right: 10,
       top: 20,
       bottom: 20,
-      itemGap: 15,
+      itemGap: 10,
       textStyle: { color: 'rgba(255,255,255,0.8)' },
     },
     series: [{

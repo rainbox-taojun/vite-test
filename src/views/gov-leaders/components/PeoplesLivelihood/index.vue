@@ -59,7 +59,6 @@ const chartData = computed(() => {
 .peoples-livelihood {
 
   .content-wrap {
-    padding: 10px 10px 5px 18px;
     display: flex;
     height: 100%;
 

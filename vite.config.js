@@ -21,6 +21,9 @@ export default ({ command }) => {
         '@': pathSrc
       }
     },
+    build: {
+      target: 'es2015',
+    },
     server: {
       proxy: {
         '/dev-api': {

@@ -1,8 +1,8 @@
 <script setup>
 const publicData = ref([
-  { label: '党务公开', open: 19, secret: 0 },
-  { label: '财务公开', open: 19, secret: 0 },
-  { label: '村(居)务公开', open: 19, secret: 0 },
+  { label: '党务公开', open: 17, secret: 0 },
+  { label: '财务公开', open: 17, secret: 0 },
+  { label: '村(居)务公开', open: 17, secret: 0 },
 ])
 </script>
 
@@ -12,7 +12,7 @@ const publicData = ref([
       v-for="item in publicData"
       class="item"
     >
-      <div class="label">{{item.label}}</div>
+      <div class="label">{{ item.label }}</div>
       <div class="open">
         <span>已公开村社</span>
         <CountTo

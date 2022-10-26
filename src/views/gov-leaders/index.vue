@@ -1,21 +1,23 @@
 <script setup name="GovLeaders">
 import MapView from './components/MapView/index.vue'
 import Organization from './components/Organization/index.vue'
-import Appeal from './components/Appeal/index.vue'
-import PolicyDecision from './components/PolicyDecision.vue'
+// import Appeal from './components/Appeal/index.vue'
+// import PolicyDecision from './components/PolicyDecision.vue'
 import ProblemWarning from './components/ProblemWarning/index.vue'
 import PeoplesLivelihood from './components/PeoplesLivelihood/index.vue'
 import CadreEvaluation from './components/CadreEvaluation.vue'
+import CadreAnalysis from './components/CadreAnalysis/index.vue'
 import Overwatch from './components/Overwatch.vue'
+import ActualCombat from './components/ActualCombat/index.vue'
 </script>
 
 <template>
   <div class="gov-leaders bigscreen">
-
     <div class="left">
       <Organization />
-      <Appeal />
-      <PolicyDecision />
+      <!-- <Appeal /> -->
+      <CadreAnalysis />
+      <CadreEvaluation />
     </div>
     <div class="center">
       <MapView class="map" />
@@ -24,7 +26,8 @@ import Overwatch from './components/Overwatch.vue'
     <div class="right">
       <ProblemWarning />
       <PeoplesLivelihood />
-      <CadreEvaluation />
+      <!-- <PolicyDecision />  -->
+      <ActualCombat />
     </div>
   </div>
 </template>
@@ -51,7 +54,7 @@ import Overwatch from './components/Overwatch.vue'
 
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 50% 28% 22%;
+    grid-template-rows: 50% 25% 25%;
     width: 100%;
     height: 100%;
   }
@@ -61,7 +64,7 @@ import Overwatch from './components/Overwatch.vue'
 
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 50% 28% 22%;
+    grid-template-rows: 50% 25% 25%;
     width: 100%;
     height: 100%;
   }
