@@ -14,7 +14,7 @@ const columns = ref([
   },
   {
     label: '干事值',
-    width: 80,
+    width: 70,
     key: 'value2',
   },
   {
@@ -34,7 +34,7 @@ const columns = ref([
   },
   {
     label: '总分',
-    width: 80,
+    width: 70,
     key: 'total',
   }
 ])
@@ -42,8 +42,18 @@ const data = ref([
   { name: '郭溪村', value1: 9.04, value2: 22.11, value3: 23.94, value4: 14.56, value5: 14.18, total: '83.83' },
   { name: '三合村', value1: 8.89, value2: 22.09, value3: 21.81, value4: 14.11, value5: 12.98, total: '79.98' },
   { name: '塘下村', value1: 9.16, value2: 20.84, value3: 20.73, value4: 14.27, value5: 10.94, total: '75.94' },
-  { name: '郭溪社区', value1: 9.23, value2: 20.77, value3: 21.11, value4: 11.89, value5: 11.65, total: '74.65' }
+  { name: '郭溪社区', value1: 9.23, value2: 20.77, value3: 21.11, value4: 11.89, value5: 11.65, total: '74.65' },
+  { name: '郭溪村', value1: 9.04, value2: 22.11, value3: 23.94, value4: 14.56, value5: 14.18, total: '83.83' },
+  { name: '三合村', value1: 8.89, value2: 22.09, value3: 21.81, value4: 14.11, value5: 12.98, total: '79.98' },
+  { name: '塘下村', value1: 9.16, value2: 20.84, value3: 20.73, value4: 14.27, value5: 10.94, total: '75.94' },
+  { name: '郭溪社区', value1: 9.23, value2: 20.77, value3: 21.11, value4: 11.89, value5: 11.65, total: '74.65' },
+  { name: '郭溪村', value1: 9.04, value2: 22.11, value3: 23.94, value4: 14.56, value5: 14.18, total: '83.83' },
+  { name: '三合村', value1: 8.89, value2: 22.09, value3: 21.81, value4: 14.11, value5: 12.98, total: '79.98' },
+  { name: '塘下村', value1: 9.16, value2: 20.84, value3: 20.73, value4: 14.27, value5: 10.94, total: '75.94' },
+  { name: '郭溪社区', value1: 9.23, value2: 20.77, value3: 21.11, value4: 11.89, value5: 11.65, total: '74.65' },
 ])
+
+
 </script>
 
 <template>

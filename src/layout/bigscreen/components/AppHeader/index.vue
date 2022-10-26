@@ -32,23 +32,23 @@ useEventListener(window, 'resize', () => {
       <div
         v-for="item in leftRoutes"
         class="menu-item"
-        :class="{active: route.path === item.path}"
+        :class="{ active: route.path === item.path }"
       >
-        <span class="menu-item-text">{{item.name}}</span>
+        <span class="menu-item-text">{{ item.name }}</span>
       </div>
     </div>
     <div class="title">
       <span>
-        乡镇综合指挥中心
+        郭溪街道综合信息指挥平台
       </span>
     </div>
     <div class="right-menu">
       <div
         v-for="item in rightRoutes"
         class="menu-item"
-        :class="{active: route.path === item.path}"
+        :class="{ active: route.path === item.path }"
       >
-        <span class="menu-item-text">{{item.name}}</span>
+        <span class="menu-item-text">{{ item.name }}</span>
       </div>
     </div>
     <UserMenu />
@@ -133,7 +133,7 @@ useEventListener(window, 'resize', () => {
       font-weight: bolder;
       font-style: oblique;
       color: rgb(255, 255, 255);
-      font-size: 36px;
+      font-size: 32px;
       line-height: 42px;
       text-indent: 1px;
       background: linear-gradient(#fff, #ABE4FF);
