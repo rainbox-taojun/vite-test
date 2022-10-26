@@ -10,10 +10,16 @@ export const constantRoutes = [
       {
         path: '/gov-leaders',
         name: 'GovLeaders',
-        component: () => import(/* webpackChunkName: "gov-leaders" */ '@/views/gov-leaders/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "gov-leaders" */ '@/views/gov-leaders/index.vue'),
         meta: { title: '党建统领' }
       }
     ]
+  },
+  {
+    path: '/grid-map',
+    name: 'GridMap',
+    component: () => import('@/views/grid-map/index.vue')
   }
 ]
 
