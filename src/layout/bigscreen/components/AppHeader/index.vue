@@ -6,15 +6,15 @@ import { useEventListener } from '@/composables'
 const route = useRoute()
 const currentRoute = computed(() => route.path.value)
 const leftRoutes = ref([
-  { path: '/gov-leaders', name: '党建统领' },
-  { path: '', name: '经济生态' },
+  { path: '/gov-leaders', name: '党建统领', target: '_self' },
+  { path: 'http://59.202.23.34:8186/tq-bigscreen-web/#/share/1573918951371907073?token=eyJhbGciOiJIUzUxMiJ9.eyJ0b2tlbl91c2VyX2lkIjoxLCJ0b2tlbl9jcmVhdGVfdGltZSI6MTY2NDE2NjMwNDIyMiwic3ViIjoiamRlbmciLCJ0b2tlbl91c2VyX25hbWUiOiJqZGVuZyIsImV4cCI6MTY2NDI1MjcwNCwidG9rZW5fdGVuYW50X2lkIjoiMDAwMDAwIiwidG9rZW5fdXNlcl9wYXNzd29yZCI6IiQyYSQxMCRjWnRXYVJ5MU13UGZUSll3UmQzcTRPN2ZMT3NSZTNYbEc5VDhqSVQvU1Q4bHFVdXMvV2ZmSyJ9.fk77AxbFUt0DOERDKhO-1z3dXvzxu9s3HeR7fz8SIKI1NT2yp-9GYn6zFEa9N0l7XTIy3g0T_Bc4e0Z-JNvfLg&shareToken=none', name: '经济生态', target: '_blank' },
 ])
 const rightRoutes = ref([
   { path: '', name: '平安法治' },
-  { path: '', name: '公共服务' },
+  { path: 'https://wzdxst-citybrain.wenzhou.gov.cn/shareScreen/eyJzY3JlZW5JZCI6NzMzfQ==', name: '公共服务', target: '_self' },
 ])
 
-
+const home = ref('https://wzdxst-citybrain.wenzhou.gov.cn/shareScreen/eyJzY3JlZW5JZCI6NzIzfQ==')
 
 // title缩放控制
 const screenWidth = ref(document.body.clientWidth)
@@ -23,6 +23,11 @@ const titleScaleX = computed(() => screenWidth.value / 1920)
 useEventListener(window, 'resize', () => {
   screenWidth.value = document.body.clientWidth
 })
+
+const jumpTo = (path, target) => {
+  if (!path || path === '/gov-leaders') return
+  window.open(path, target)
+}
 </script>
 
 <template>
@@ -31,13 +36,18 @@ useEventListener(window, 'resize', () => {
     <div class="left-menu">
       <div
         v-for="item in leftRoutes"
+        :key="item.path"
         class="menu-item"
         :class="{ active: route.path === item.path }"
+        @click="jumpTo(item.path, item.target)"
       >
         <span class="menu-item-text">{{ item.name }}</span>
       </div>
     </div>
-    <div class="title">
+    <div
+      class="title"
+      @click="jumpTo(home, '_self')"
+    >
       <span>
         郭溪街道综合信息指挥平台
       </span>
@@ -45,8 +55,10 @@ useEventListener(window, 'resize', () => {
     <div class="right-menu">
       <div
         v-for="item in rightRoutes"
+        :key="item.path"
         class="menu-item"
         :class="{ active: route.path === item.path }"
+        @click="jumpTo(item.path, item.target)"
       >
         <span class="menu-item-text">{{ item.name }}</span>
       </div>

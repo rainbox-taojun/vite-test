@@ -2,9 +2,9 @@ import { wgs84tobd09 } from './WGS84tobaidu'
 import { ElMessage, ElMessageBox, ElLoading } from 'element-plus'
 import axios from 'axios'
 export let map
-export const initMap = () => {
+export const initMap = (containerID) => {
   // 百度地图API功能
-  map = new BMap.Map('mapContent', { enableMapClick: false }) // 创建Map实例
+  map = new BMap.Map(containerID, { enableMapClick: false }) // 创建Map实例
   map.centerAndZoom(new BMap.Point(120.621536, 27.973782), 12) // 初始化地图,设置中心点坐标和地图级别
 
   map.enableScrollWheelZoom(true) //开启鼠标滚轮缩放
@@ -35,7 +35,7 @@ export const initMap = () => {
 let polygonList = []
 let seletePolyon = {}
 let seleteColor_ = ''
-export function addArea(result) {
+export function addArea (result) {
   let feature = result.features[0] //取第一个要素
   if (!feature) return
   let geometry = feature.geometry //取要素的几何对象
@@ -116,7 +116,7 @@ export function addArea(result) {
   map.addOverlay(polygon) //向地图添加面
   polygonList.push(polygon)
 }
-export function addOutArea(result) {
+export function addOutArea (result) {
   let feature = result.features[0] //取第一个要素
   if (!feature) return
   let geometry = feature.geometry //取要素的几何对象

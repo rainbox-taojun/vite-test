@@ -1,14 +1,15 @@
 <script setup name="MapView">
 import MapShadow from './components/MapShadow.vue'
-import { useEventListener } from '@/composables'
+import {
+  initMap,
+  loadData,
+  queryInitOrgCode
+} from '@/utils/map'
 
-const visible = ref(true)
-
-useEventListener(window, 'resize', () => {
-  visible.value = false
-  nextTick(() => {
-    visible.value = true
-  })
+onMounted(async () => {
+  let orgCode = await queryInitOrgCode('郭溪街道')
+  initMap('gov-leader-map-container')
+  loadData(orgCode)
 })
 </script>
 
@@ -20,13 +21,10 @@ useEventListener(window, 'resize', () => {
       </span>
     </header>
 
-    <iframe
-      v-if="visible"
-      src="http://59.202.23.34:8186/tq-bigscreen-web/#/share/1580848071670439937?token=eyJhbGciOiJIUzUxMiJ9.eyJ0b2tlbl91c2VyX2lkIjoxLCJ0b2tlbl9jcmVhdGVfdGltZSI6MTY2NTczODkyNjY4Nywic3ViIjoiamRlbmciLCJ0b2tlbl91c2VyX25hbWUiOiJqZGVuZyIsImV4cCI6MTY2NTgyNTMyNiwidG9rZW5fdGVuYW50X2lkIjoiMDAwMDAwIiwidG9rZW5fdXNlcl9wYXNzd29yZCI6IiQyYSQxMCRjWnRXYVJ5MU13UGZUSll3UmQzcTRPN2ZMT3NSZTNYbEc5VDhqSVQvU1Q4bHFVdXMvV2ZmSyJ9.g24K-Bh3mPzM6GhvTF5xhw288aIGTlz_hOCnZ3vt4BfeYFhJaUsOne0gQpWVhYcliW7J5NVXsdcPMQeBUlGs0w&shareToken=none"
-      frameborder="0"
+    <div
+      id="gov-leader-map-container"
       class="map-container"
-    ></iframe>
-    <!-- <div class="map-img"></div> -->
+    />
 
     <MapShadow />
   </div>

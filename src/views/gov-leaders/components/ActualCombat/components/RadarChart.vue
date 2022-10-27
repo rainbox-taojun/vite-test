@@ -6,7 +6,7 @@ const data1 = ref([78, 85.5, 91, 72.5, 66.5])
 const yData = ref([
   '联系群众解民忧',
   '民主会商定政策',
-  '依法监督惠名声',
+  '依法监督惠民生',
   '多方协同促治理',
   '数智赋能增实效'
 ])
@@ -26,7 +26,7 @@ const options = computed(() => {
     radar: {
       radius: "60%", //大小
       nameGap: 3, // 图中工艺等字距离图的距离
-      center: ["50%", "50%"], // 图的位置
+      center: ["50%", "55%"], // 图的位置
       name: {
         textStyle: {
           color: "rgba(255, 255, 255, 0.8)",
