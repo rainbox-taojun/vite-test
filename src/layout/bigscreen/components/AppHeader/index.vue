@@ -7,10 +7,10 @@ const route = useRoute()
 const currentRoute = computed(() => route.path.value)
 const leftRoutes = ref([
   { path: '/gov-leaders', name: '党建统领', target: '_self' },
-  { path: 'http://59.202.23.34:8186/tq-bigscreen-web/#/share/1573918951371907073?token=eyJhbGciOiJIUzUxMiJ9.eyJ0b2tlbl91c2VyX2lkIjoxLCJ0b2tlbl9jcmVhdGVfdGltZSI6MTY2NDE2NjMwNDIyMiwic3ViIjoiamRlbmciLCJ0b2tlbl91c2VyX25hbWUiOiJqZGVuZyIsImV4cCI6MTY2NDI1MjcwNCwidG9rZW5fdGVuYW50X2lkIjoiMDAwMDAwIiwidG9rZW5fdXNlcl9wYXNzd29yZCI6IiQyYSQxMCRjWnRXYVJ5MU13UGZUSll3UmQzcTRPN2ZMT3NSZTNYbEc5VDhqSVQvU1Q4bHFVdXMvV2ZmSyJ9.fk77AxbFUt0DOERDKhO-1z3dXvzxu9s3HeR7fz8SIKI1NT2yp-9GYn6zFEa9N0l7XTIy3g0T_Bc4e0Z-JNvfLg&shareToken=none', name: '经济生态', target: '_blank' },
+  { path: 'http://59.202.23.34:8186/tq-bigscreen-web/#/share/1573918951371907073?orgId=1295893629763592267&parentId=1295892093721387053&token=eyJhbGciOiJIUzUxMiJ9.eyJ0b2tlbl91c2VyX2lkIjoxLCJ0b2tlbl9jcmVhdGVfdGltZSI6MTY2NjI2NzEzMzE2Niwic3ViIjoiamRlbmciLCJ0b2tlbl91c2VyX25hbWUiOiJqZGVuZyIsImV4cCI6MTY2NjM1MzUzMywidG9rZW5fdGVuYW50X2lkIjoiMDAwMDAwIiwidG9rZW5fdXNlcl9wYXNzd29yZCI6IiQyYSQxMCRjWnRXYVJ5MU13UGZUSll3UmQzcTRPN2ZMT3NSZTNYbEc5VDhqSVQvU1Q4bHFVdXMvV2ZmSyJ9.rv5e1IRxLk_vfpOI2mi_-OSMKSv0MSe4szhtqq-WoTfxNAahyrEGyqtKhv6P1p4D-CyrvrOXbFpOuofv483mRQ&shareToken=', name: '经济生态', target: '_blank' },
 ])
 const rightRoutes = ref([
-  { path: '', name: '平安法治' },
+  { path: 'https://shzlyzt.wenzhou.gov.cn:3005/login/#/', name: '平安法治', target: '_blank' },
   { path: 'https://wzdxst-citybrain.wenzhou.gov.cn/shareScreen/eyJzY3JlZW5JZCI6NzMzfQ==', name: '公共服务', target: '_self' },
 ])
 

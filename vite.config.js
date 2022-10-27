@@ -1,3 +1,4 @@
+import { defineConfig } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -11,10 +12,10 @@ import { viteMockServe } from 'vite-plugin-mock'
 import { svgBuilder } from './build/svg/svgBuilder.ts'
 
 const pathSrc = path.resolve(__dirname, 'src')
+let prodMock = false
 
 // https://vitejs.dev/config/
-export default ({ command }) => {
-  let prodMock = false
+export default defineConfig(({ command }) => {
   return {
     resolve: {
       alias: {
@@ -22,7 +23,7 @@ export default ({ command }) => {
       }
     },
     build: {
-      target: 'es2015',
+      target: 'modules',
     },
     server: {
       proxy: {
@@ -31,10 +32,10 @@ export default ({ command }) => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/dev-api/, '')
         },
-        '/basic': {
-          target: 'http://122.228.7.96:10010/',
+        '/server-proxy': {
+          target: 'http://10.36.194.144:10010',
           changeOrigin: true,
-          pathRewrite: { '^/basic': '' },
+          pathRewrite: { '^/server-proxy': '' },
           secure: false
         }
       }
@@ -92,4 +93,4 @@ export default ({ command }) => {
       svgBuilder('./src/icons/svg/')
     ]
   }
-}
+})

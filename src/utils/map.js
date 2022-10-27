@@ -1,6 +1,5 @@
 import { wgs84tobd09 } from './WGS84tobaidu'
-import { ElMessage, ElMessageBox, ElLoading } from 'element-plus'
-import axios from 'axios'
+import { getMapList } from '@/api/map'
 export let map
 export const initMap = (containerID) => {
   // 百度地图API功能
@@ -150,13 +149,10 @@ export function addOutArea (result) {
 }
 
 export const loadData = async (orgcode) => {
-  let res = await axios.get('/basic/driver/map/list', {
-    params: { orgcode }
-  })
-  let result = res.data
+  let res = await getMapList({ orgcode })
   map.clearOverlays() //清除所有覆盖物
-  if (result.data.length) {
-    let resData = JSON.parse(result.data[0].geoJson) || []
+  if (res.data?.length) {
+    let resData = JSON.parse(res.data[0].geoJson) || []
     resData.map((it, index) => {
       if (index) {
         addArea(it)
@@ -182,13 +178,10 @@ export const queryInitOrgCode = (name) => {
     return '1.1.14.'
   } else {
     return new Promise(async (resolve, reject) => {
-      let res = await axios.get('/basic/driver/map/list', {
-        params: { name }
-      })
-      let result = res.data
+      let res = await await getMapList({ name })
       let orgCode = ''
-      if (result.data.length) {
-        orgCode = result.data[0].orgcode
+      if (res.data?.length) {
+        orgCode = res.data[0].orgcode
       } else {
         ElMessage.info('未找到该区域')
         orgCode = '1.1.14.'

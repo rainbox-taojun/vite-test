@@ -2,8 +2,8 @@
 import { useEcharts } from '@/composables'
 import { radarItemBg } from './radarItemBg'
 
-const data1 = ref([4.35, 25.5, 1.2, 12.75, 16.33, 39.84])
-const data2 = ref([11, 64, 3, 32, 41, 100])
+const data1 = ref([0, 0, 0, 0, 0, 0])
+const data2 = ref([0, 0, 0, 0, 0, 0])
 const yData = ref([
   '权利寻租、优亲厚友、违规插手工程',
   '围标串标',
