@@ -20,6 +20,11 @@ export const constantRoutes = [
     path: '/grid-map',
     name: 'GridMap',
     component: () => import('@/views/grid-map/index.vue')
+  },
+  {
+    path: '/main-screen',
+    name: 'MainScreen',
+    component: () => import('@/views/main-screen/index.vue')
   }
 ]
 
